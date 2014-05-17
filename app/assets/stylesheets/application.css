@@ -1,0 +1,73 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+
+body{
+	font-family: 'Lato', sans-serif;
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(10%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, circle cover,  #ffffff 10%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background-color: #d8e7ff;
+}
+
+h1{
+	color: white;
+}
+
+.menu p{
+	color: white;
+	border-bottom: 1px solid purple;
+	font-weight: 300;
+	font-size: 13px;
+}
+
+.menu h1, .menu h3{
+	font-weight: 300;
+	color: white;
+}
+
+.menu h3{
+	font-size: 16px;
+}
+
+.menu{
+	background-color: rgb(39,39,39);
+	display: block;
+	width: 11%;
+	height: 250px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-left: 1%;
+	opacity: 0.8;
+}
+
+#microphone, #song{
+	margin: 1%;
+	display: block;
+	width: 120px;
+	height: auto;
+	padding: 1%;
+	background-color: grey;
+	color: white;
+	font-weight: 300;
+	border-bottom: 1px solid purple;
+	font-size: 13px;
+	margin-bottom: 7%;
+}
+
+canvas{
+	position: absolute;
+	top: 0;
+	z-index: -1;
+}
