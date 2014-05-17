@@ -2,6 +2,7 @@ $(document).ready(function(){
 	cube();
 	controlPanel();
 	controllerSize;
+	signUp();
 
 	$('#microphone').click(function(){
 			window.source && source.disconnect(0);
@@ -31,4 +32,5 @@ $(document).ready(function(){
 	if (window.location.hash) {
 		$(window.location.hash).trigger('click');
 	}
+
 });

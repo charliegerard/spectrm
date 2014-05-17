@@ -6,18 +6,18 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-	<script type='text/javascript' src='js/dat.gui.js'></script>
-	<script type="text/javascript" src="js/sound.js"></script>
-	<script type="text/javascript" src="js/shapes.js"></script>
-	<script type="text/javascript" src="js/controls.js"></script>
+	<!--<script type='text/javascript' src='js/dat.gui.js'></script>
+	// <script type="text/javascript" src="js/sound.js"></script>
+	// <script type="text/javascript" src="js/shapes.js"></script>
+	// <script type="text/javascript" src="js/controls.js"></script>
 
-	<script type="text/javascript" src="js/landscape.js"></script>
-	<script type="text/javascript" src="js/landscape_test.js"></script>
+	// <script type="text/javascript" src="js/landscape.js"></script>
+	// <script type="text/javascript" src="js/landscape_test.js"></script>
 
-	<script type="text/javascript" src="js/microphone.js"></script>
-	<!--<link rel="stylesheet" href="css/style.css">-->
-	<script src="js/control_panel.js"></script>
-	<script type="text/javascript" src="js/documentready.js"></script>
+	// <script type="text/javascript" src="js/microphone.js"></script>
+	// <!--<link rel="stylesheet" href="css/style.css">
+	 <script src="js/control_panel.js"></script>
+ 	<script type="text/javascript" src="js/documentready.js"></script> -->
 </head>
 <body>
 
@@ -30,6 +30,20 @@
 		<div id="microphone">Use microphone</div>
 		<div id="song">Use song</div>
 	</div>
+
+	<!--Sign up form -->
+	<% unless @current_user %>
+		<div class="sign-up" style="display: none">
+			<h1>To save your settings, please sign up first!</h1>
+ 			<%= form_for @user do |x| %>
+				<%= x.text_field :username, :placeholder => "username" %>
+				<%= x.email_field :email, :placeholder => "email address" %>
+				<%= x.password_field :password, :placeholder => "password" %>
+				<%= x.password_field :password_confirmation, :placeholder => "password confirmation" %>
+				<%= x.submit "Sign up" %>
+			<%end %> 
+		</div>
+	<% end %>
 
 	<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>-->
 </body>

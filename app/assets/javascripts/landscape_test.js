@@ -7,7 +7,7 @@ var landscapeNew = function(){
 	//Creating the scene and objects
 	var scene = new THREE.Scene();
 										  // fov,aspect,                              near,far
-	var camera = new THREE.PerspectiveCamera(10, $(window).width() / $(window).height(), 1, 1000);
+	var camera = new THREE.PerspectiveCamera(100, $(window).width() / $(window).height(), 1, 1000);
 	var renderer = new THREE.WebGLRenderer();
 	var buildings = new Array(); //Array of buildings
 	var controls;

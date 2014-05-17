@@ -1,6 +1,8 @@
 Sync::Application.routes.draw do
   root :to => 'pages#index'
-  get "users/index"
+  #root :to => 'users#index'
+  get '/users' => 'users#index'
+
   get "users/create"
   get "users/new"
   get "users/edit"
