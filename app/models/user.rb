@@ -9,6 +9,8 @@
 #  password_confirmation :text
 #  created_at            :datetime
 #  updated_at            :datetime
+#  password_digest       :string(255)
+#  admin                 :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
