@@ -7,11 +7,16 @@ Sync::Application.routes.draw do
   post '/signup' => 'users#create'
   post '/users' => 'users#create'
 
-  get '/login' => 'pages#index'
+  #post 'index' => 'session#new'
+  # get '/login' => 'session#new'
+  # post '/login' => 'session#create'
+  # delete '/login' => 'session#destroy'
+
+  get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-  # get "users/create" => 'pages#index'
+ #get 'users/create' => 'pages#index'
   # get "users/new"
   # get "users/edit"
   # get "users/show"
@@ -19,9 +24,5 @@ Sync::Application.routes.draw do
   # get "users/destroy"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
 
 end

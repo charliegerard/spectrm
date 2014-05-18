@@ -6,9 +6,9 @@ class PagesController < ApplicationController
 	end
 	
 	def index
-		#  if @current_user.present?
-		#  	redirect_to root_path
-		#  end
+		# if @current_user.present?
+		#   	redirect_to root_path
+		# end
 
 		@user = User.new
 	end

@@ -73,11 +73,14 @@
 
 		<div class="sign-up" style="display: none">
 			<h1>To save your settings, please sign up first!</h1>
+			<% if flash[:notice].present? %> 
+            	<h2><%= flash[:notice] %></h2> 
+          	<% end %>
  			<%= form_for @user do |x| %>
-				<%= x.text_field :username, :placeholder => "username" %>
-				<%= x.email_field :email, :placeholder => "email address" %>
-				<%= x.password_field :password, :placeholder => "password" %>
-				<%= x.password_field :password_confirmation, :placeholder => "password confirmation" %>
+				<%= x.text_field :username, :placeholder => "username", :autofocus => true, :required => true  %>
+				<%= x.email_field :email, :placeholder => "email address", :required => true %>
+				<%= x.password_field :password, :placeholder => "password", :required => true %>
+				<%= x.password_field :password_confirmation, :placeholder => "password confirmation", :required => true %>
 				<%= x.submit "Sign up" %>
 				<button id="cancel_button">Cancel</button>
 			<%end %> 
@@ -86,17 +89,17 @@
 		<!-- Sign in form -->
 		<div id="sign-in-form" style="display:none">
 			<h1>Sign in</h1>
-			<form action='/login' method="post">
+			<!--<form action='/login' method="post">-->
 				<%= form_tag login_path, :method => :post do %>
 					<%= label_tag :email %>
-					<%= text_field_tag :email, params[:email] %>
+					<%= text_field_tag :email, params[:email], :autofocus => true, :required => true%>
 					<%= label_tag :password %>
-					<%= password_field_tag :password %>
+					<%= password_field_tag :password, :required => true %>
 					<%= submit_tag "Sign in" %>
 					<button id="cancel_button">Cancel</button>
 				<% end %>
-			</form>
-		</div>
+			<!--</form> -->
+		</div> 
 	<% end %>
 
 	<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>-->

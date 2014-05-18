@@ -1,4 +1,8 @@
-<div id="sign-in-form" style="display:none">
+<% if flash[:notice].present? %> 
+  <h2><%= flash[:notice] %></h2> 
+<% end %>
+
+<!-- <div id="sign-in-form" style="display:none"> -->
 	<form action='/login' method="post">
 		<%= form_tag login_path, :method => :post do %>
 			<%= label_tag :email %>
@@ -7,4 +11,4 @@
 			<%= password_field_tag :password %>
 			<%= submit_tag "Sign in" %>
 		<% end %>
-</div>
+<!-- </div> -->
