@@ -23,6 +23,7 @@
 
 	<div class="menu">
 		<h1>SYNC</h1>
+		<%== usernav %>
 		<h3>Effects</h3>
 		<p id="cube">Cube</p>
 		<p id="landscape">Landscape</p>
@@ -31,8 +32,45 @@
 		<div id="song">Use song</div>
 	</div>
 
+	<!-- If there is a current user logged in -->
+	<% if @current_user %>
+		<!-- the save settings button and field-->
+		<form id="settings-save">
+		 <!-- <nav>
+		    <ul>
+		      <li class="settings-save">
+		        <a href="#" class="save-settings" title="save">SAVE</a> -->
+		    <div id="save-settings">
+		    	<h1>Give a name to your settings</h1>
+		        <input name="settings-name" id="settings-name" placeholder="settings name">
+		        <!-- I can add 'required' after the placeholder if I need -->
+		        <button>Save settings</button>
+		        <button id="cancelSettings">Cancel</button>
+		    </div>
+		     <!-- </li>
+		    </ul>
+		  </nav>-->
+		</form>
+
+		<!-- an empty spot for adding the saved loops as buttons -->
+		<!-- need to add the new saved loop to the drop down in the controls panel -->
+			<!--<nav id="loops-saved">
+		    <ul id="loop-nav">
+		      <!-- this gets populetd by ajax 
+				</ul>
+		  </nav> -->
+
+	<% end %>
+
 	<!--Sign up form -->
 	<% unless @current_user %>
+		<!-- Propose to either sign in or sign up -->
+		<div id="login-choice" style="display: none">
+			<h1>Sign in or sign up to continue</h1>
+			<button id="signup-choice">Sign up</button>
+			<button id="signin-choice">Sign in</button>
+		</div>
+
 		<div class="sign-up" style="display: none">
 			<h1>To save your settings, please sign up first!</h1>
  			<%= form_for @user do |x| %>
@@ -41,7 +79,23 @@
 				<%= x.password_field :password, :placeholder => "password" %>
 				<%= x.password_field :password_confirmation, :placeholder => "password confirmation" %>
 				<%= x.submit "Sign up" %>
+				<button id="cancel_button">Cancel</button>
 			<%end %> 
+		</div>
+
+		<!-- Sign in form -->
+		<div id="sign-in-form" style="display:none">
+			<h1>Sign in</h1>
+			<form action='/login' method="post">
+				<%= form_tag login_path, :method => :post do %>
+					<%= label_tag :email %>
+					<%= text_field_tag :email, params[:email] %>
+					<%= label_tag :password %>
+					<%= password_field_tag :password %>
+					<%= submit_tag "Sign in" %>
+					<button id="cancel_button">Cancel</button>
+				<% end %>
+			</form>
 		</div>
 	<% end %>
 

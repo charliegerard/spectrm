@@ -1728,7 +1728,7 @@ dat.GUI = dat.gui.GUI = (function (css, saveDialogueContents, styleSheet, contro
                 params.load.preset = v;
               }
               setPresetSelectIndex(this);
-              _this.revert();
+              // _this.revert();
             }
 
           },
@@ -2257,9 +2257,32 @@ dat.GUI = dat.gui.GUI = (function (css, saveDialogueContents, styleSheet, contro
 
         },
 
-        revert: function(gui) {
+        // revert: function(gui) {
+
+        //   common.each(this.__controllers, function(controller) {
+        //     // Make revert work on Default.
+        //     if (!this.getRoot().load.remembered) {
+        //       controller.setValue(controller.initialValue);
+        //     } else {
+        //       recallSavedValue(gui || this.getRoot(), controller);
+        //     }
+        //   }, this);
+
+        //   common.each(this.__folders, function(folder) {
+        //     folder.revert(folder);
+        //   });
+
+        //   if (!gui) {
+        //     markPresetModified(this.getRoot(), false);
+        //   }
+
+
+        // },
+
+        deleteSettings: function(gui) {
 
           common.each(this.__controllers, function(controller) {
+            //Trying to change the reset button into a delete button
             // Make revert work on Default.
             if (!this.getRoot().load.remembered) {
               controller.setValue(controller.initialValue);
@@ -2269,7 +2292,7 @@ dat.GUI = dat.gui.GUI = (function (css, saveDialogueContents, styleSheet, contro
           }, this);
 
           common.each(this.__folders, function(folder) {
-            folder.revert(folder);
+            folder.delete(folder);
           });
 
           if (!gui) {
@@ -2616,10 +2639,15 @@ dat.GUI = dat.gui.GUI = (function (css, saveDialogueContents, styleSheet, contro
     dom.addClass(button2, 'button');
     dom.addClass(button2, 'save-as');
 
+    // var button3 = document.createElement('span');
+    // button3.innerHTML = 'Revert';
+    // dom.addClass(button3, 'button');
+    // dom.addClass(button3, 'revert');
+
     var button3 = document.createElement('span');
-    button3.innerHTML = 'Revert';
+    button3.innerHTML = 'Delete';
     dom.addClass(button3, 'button');
-    dom.addClass(button3, 'revert');
+    dom.addClass(button3, 'deleteSettings');
 
     var select = gui.__preset_select = document.createElement('select');
 
@@ -2701,8 +2729,12 @@ dat.GUI = dat.gui.GUI = (function (css, saveDialogueContents, styleSheet, contro
       if (presetName) gui.saveAs(presetName);
     });
 
+    // dom.bind(button3, 'click', function() {
+    //   gui.revert();
+    // });
+
     dom.bind(button3, 'click', function() {
-      gui.revert();
+      gui.deleteSettings();
     });
 
 //    div.appendChild(button2);
