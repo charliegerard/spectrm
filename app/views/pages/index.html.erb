@@ -82,22 +82,26 @@
 				<%= x.password_field :password, :placeholder => "password", :required => true %>
 				<%= x.password_field :password_confirmation, :placeholder => "password confirmation", :required => true %>
 				<%= x.submit "Sign up" %>
-				<button id="cancel_button">Cancel</button>
+				<button class="cancel_button">Cancel</button>
 			<%end %> 
 		</div>
 
 		<!-- Sign in form -->
 		<div id="sign-in-form" style="display:none">
 			<h1>Sign in</h1>
+			<% if flash[:notice].present? %> 
+            	<h2><%= flash[:notice] %></h2> 
+          	<% end %>
 			<!--<form action='/login' method="post">-->
 				<%= form_tag login_path, :method => :post do %>
 					<%= label_tag :email %>
-					<%= text_field_tag :email, params[:email], :autofocus => true, :required => true%>
+					<%= text_field_tag :email, params[:email], :autofocus => true, :required => true %>
 					<%= label_tag :password %>
 					<%= password_field_tag :password, :required => true %>
 					<%= submit_tag "Sign in" %>
-					<button id="cancel_button">Cancel</button>
+					<button class="cancel_button">Cancel</button>
 				<% end %>
+
 			<!--</form> -->
 		</div> 
 	<% end %>

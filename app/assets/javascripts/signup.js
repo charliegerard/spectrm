@@ -12,10 +12,10 @@ var signUp = function(){
 			$('#sign-in-form').fadeIn();
 		});
 
-		$('#cancel_button').click(function(event){
+		$('.cancel_button').click(function(event){
 			event.preventDefault();
 			$('.sign-up').fadeOut();
-			$('.sign-in-form').fadeOut();
+			$('#sign-in-form').fadeOut();
 		});
 	});
 
