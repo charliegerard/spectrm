@@ -11,6 +11,8 @@ $(document).ready(function(){
 	$('#microphone').click(function(){
 			window.source && source.disconnect(0);
 			window.microphoneOn = true;
+			//setting the analyser to null here seems to work better than in the function in the microphone js file
+			analyser = null;
 			//console.log(window.microphoneOn = true)
 			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;	
 		 	navigator.getUserMedia( {audio:true}, gotStream );

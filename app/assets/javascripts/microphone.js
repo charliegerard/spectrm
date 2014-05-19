@@ -11,7 +11,7 @@ window.requestAnimFrame = (function(){
 //MAHTILDA IS AWESOME
  var array;
  var boost = 0;
- var microphoneOn = true
+ //var microphoneOn = true
  var sizeValue;
 
 //--------------  ACCESSING THE MICROPHONE ------------
