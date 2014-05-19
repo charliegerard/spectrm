@@ -4,9 +4,6 @@ var sizeValue;
 var listName;
 
 $(document).ready(function(){
-
-
-
   $('#saveSettings').click(function(event){
     console.log('hi');
     sizeValue = parseInt($('input').val());
@@ -26,7 +23,6 @@ $(document).ready(function(){
       console.log("failed")
     })
   });
-
 
 
 loadSettings = function(){ 

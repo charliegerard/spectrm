@@ -8,8 +8,9 @@ var analyser;
 var buffer;
 var boost = 0;
 var array = new Array();
-//var url = 'Hungry_Face.mp3'
+var url = 'Hungry_Face.mp3'
 var microphoneOn = false;
+var sizeValue;
 
 //------------------------ CREATE AUDIO CONTEXT --------------------------
 //
@@ -28,8 +29,8 @@ var request;
 //Function to be called on document.ready
 var playSong = function(){
 		request = new XMLHttpRequest();
-		//request.open("GET", url, true);
-		request.open("GET", "Hungry_Face.mp3", true);
+		request.open("GET", url, true);
+		//request.open("GET", "Hungry_Face.mp3", true);
 		request.responseType = 'arraybuffer';
 
 	    request.onload = function(){
@@ -65,6 +66,7 @@ var playSong = function(){
 	    			//When the sound is playing, do that:
 	 
 	    			sourceJs.onaudioprocess = function(e){
+	    				sizeValue = parseInt($('input').val());
 
 	    				array = new Uint8Array(analyser.frequencyBinCount);
 	    				//Puts the sound data in the analyser?
@@ -77,7 +79,6 @@ var playSong = function(){
 	    					boost += array[i];
 	    				}
 	    				boost = (boost / array.length) * (sizeValue * 2);
-	    				console.log(sizeValue)
 	    			};
 		   			play();
 	    		}
@@ -88,9 +89,9 @@ var playSong = function(){
 
 	//Plays the sound when you press on the 'SONG' button
 	 function play() {
-	 	$('#play').fadeOut('normal', function() {
-	 		$(this).remove();
- 		});
+	 	// $('#play').fadeOut('normal', function() {
+	 	// 	$(this).remove();
+ 		// });
 	 	source.noteOn(0);
 	}
 };

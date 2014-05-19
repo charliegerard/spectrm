@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	cube();
 	//controlPanel();
-	controllerSize;
+	//controllerSize;
 	signUp();
 	//settings();
 	//saveSettings(listName, sizeValue);
