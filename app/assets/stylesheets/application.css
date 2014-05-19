@@ -15,8 +15,8 @@
 
 body{
 	font-family: 'Lato', sans-serif;
-	/*background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(10%,#ffffff), color-stop(100%,#e5e5e5));  Chrome,Safari4+ 
-	background: -webkit-radial-gradient(center, circle cover,  #ffffff 10%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */*/
+	/*background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(10%,#ffffff), color-stop(100%,#e5e5e5));  Chrome,Safari4+ */
+	/*background: -webkit-radial-gradient(center, circle cover,  #ffffff 10%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
 	/*background-color: #d8e7ff;*/
 	background-color: black;
 }
