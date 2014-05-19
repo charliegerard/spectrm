@@ -259,3 +259,18 @@ input#sizeInput{
 	font-weight: 300;
 	font-size: 20px;
 }
+
+#credits{
+	display: block;
+	width: auto;
+	position: absolute;
+	left: 0;
+	padding: 0 1%;
+	bottom: 0;
+}
+
+#credits p, a{
+	color: grey;
+	font-weight: 300;
+	font-size: 12px;
+}
