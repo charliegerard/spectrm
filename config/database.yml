@@ -53,10 +53,8 @@ test:
   host: localhost
   password:
 
-# production:
-#   adapter: postgresql
-#   encoding: unicode
-#   database: sync_production
-#   pool: 5
-#   username: sync
-#   password:
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: sync_production
+  pool: 5
