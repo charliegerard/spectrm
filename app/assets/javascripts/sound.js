@@ -13,87 +13,87 @@ var microphoneOn = false;
 
 //------------------------ CREATE AUDIO CONTEXT --------------------------
 //
-// if (typeof AudioContext !== "undefined") {
-//     context = new AudioContext();
-// } else if (typeof webkitAudioContext !== "undefined") {
-//     context = new webkitAudioContext();
-// } else {
-//     return;
-// }
+if (typeof AudioContext !== "undefined") {
+    context = new AudioContext();
+} else if (typeof webkitAudioContext !== "undefined") {
+    context = new webkitAudioContext();
+} else {
+    console.log('omg');
+}
 
 //----------------------- Request URL with sound -------------------------
 //
 var request;
 
 //Function to be called on document.ready
-// var playSong = function(){
-// 		request = new XMLHttpRequest();
-// 		//request.open("GET", url, true);
-// 		request.open("GET", "Hungry_Face.mp3", true);
-// 		request.responseType = 'arraybuffer';
+var playSong = function(){
+		request = new XMLHttpRequest();
+		//request.open("GET", url, true);
+		request.open("GET", "Hungry_Face.mp3", true);
+		request.responseType = 'arraybuffer';
 
-// 	    request.onload = function(){
-// 	    	context.decodeAudioData(
-// 	    		request.response,
-// 	    		function(buffer){
-// 	    			if(!buffer){
-// 	    				$('#info').text('Error decoding file data');
-// 						return;
-// 	    			}
+	    request.onload = function(){
+	    	context.decodeAudioData(
+	    		request.response,
+	    		function(buffer){
+	    			if(!buffer){
+	    				$('#info').text('Error decoding file data');
+						return;
+	    			}
 
-// 	    			sourceJs = context.createJavaScriptNode(2048);
-// 	    			sourceJs.buffer = buffer;
-// 	    			sourceJs.connect(context.destination);
+	    			sourceJs = context.createJavaScriptNode(2048);
+	    			sourceJs.buffer = buffer;
+	    			sourceJs.connect(context.destination);
 
-// 	    			//Creates the analyser
-// 	    			analyser = context.createAnalyser();
-// 	    			analyser.smoothingTimeConstant = 0.5;
+	    			//Creates the analyser
+	    			analyser = context.createAnalyser();
+	    			analyser.smoothingTimeConstant = 0.5;
 
-// 	    			analyser.fftSize = 512;
+	    			analyser.fftSize = 512;
 
-// 	    			source = context.createBufferSource();
+	    			source = context.createBufferSource();
 
-// 	    			source.buffer = buffer;
-// 	    			//Looping the sound??
-// 	    			//source.loop = true;
+	    			source.buffer = buffer;
+	    			//Looping the sound??
+	    			//source.loop = true;
 
-// 	    			//connects the source with the analyser;
-// 	    			source.connect(analyser);
-// 	    			//connects the analyser with the sound node??
-// 	    			analyser.connect(sourceJs);
-// 	    			source.connect(context.destination);
-// 	    			//When the sound is playing, do that:
+	    			//connects the source with the analyser;
+	    			source.connect(analyser);
+	    			//connects the analyser with the sound node??
+	    			analyser.connect(sourceJs);
+	    			source.connect(context.destination);
+	    			//When the sound is playing, do that:
 	 
-// 	    			sourceJs.onaudioprocess = function(e){
+	    			sourceJs.onaudioprocess = function(e){
 
-// 	    				array = new Uint8Array(analyser.frequencyBinCount);
-// 	    				//Puts the sound data in the analyser?
-// 	    				analyser.getByteFrequencyData(array);
-// 	    				//makes the sound move another way
-// 	    				//analyser.getByteTimeDomainData(array);
-// 	    				boost = 0;
-// 	    				//Not sure about that. 
-// 	    				for(var i = 0; i < array.length; i++){
-// 	    					boost += array[i];
-// 	    				}
-// 	    				boost = (boost / array.length) * (sizeValue * 2);
-// 	    				console.log(sizeValue)
-// 	    			};
-// 		   			play();
-// 	    		}
-// 	    	)
-// 	    };
+	    				array = new Uint8Array(analyser.frequencyBinCount);
+	    				//Puts the sound data in the analyser?
+	    				analyser.getByteFrequencyData(array);
+	    				//makes the sound move another way
+	    				//analyser.getByteTimeDomainData(array);
+	    				boost = 0;
+	    				//Not sure about that. 
+	    				for(var i = 0; i < array.length; i++){
+	    					boost += array[i];
+	    				}
+	    				boost = (boost / array.length) * (sizeValue * 2);
+	    				console.log(sizeValue)
+	    			};
+		   			play();
+	    		}
+	    	)
+	    };
 	
-//     request.send();
+    request.send();
 
-// 	//Plays the sound when you press on the 'SONG' button
-// 	 function play() {
-// 	 	$('#play').fadeOut('normal', function() {
-// 	 		$(this).remove();
-//  		});
-// 	 	source.noteOn(0);
-// 	}
-// };
+	//Plays the sound when you press on the 'SONG' button
+	 function play() {
+	 	$('#play').fadeOut('normal', function() {
+	 		$(this).remove();
+ 		});
+	 	source.noteOn(0);
+	}
+};
 
 
 
