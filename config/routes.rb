@@ -14,6 +14,7 @@ Sync::Application.routes.draw do
   get '/settings' => 'settings#index'
   post '/settings' => 'settings#create'
   get '/settings/load' => 'settings#load'
+  delete '/settings/destroy' => 'settings#destroy' #delete settings via ajax
 
 
  #get 'users/create' => 'pages#index'
