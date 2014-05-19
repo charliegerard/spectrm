@@ -1,8 +1,12 @@
 $(document).ready(function(){
 	cube();
-	controlPanel();
+	//controlPanel();
 	controllerSize;
 	signUp();
+	//settings();
+	//saveSettings(listName, sizeValue);
+	// changeValue();
+	//loadSettings();
 
 	$('#microphone').click(function(){
 			window.source && source.disconnect(0);

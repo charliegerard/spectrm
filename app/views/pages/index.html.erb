@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Test2 with microphone</title>
 	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
 	<!--<script type='text/javascript' src='js/dat.gui.js'></script>
 	// <script type="text/javascript" src="js/sound.js"></script>
@@ -32,25 +32,41 @@
 		<div id="song">Use song</div>
 	</div>
 
+	<div class="control_panel">
+		<select class="lists">
+			<option value="Default">Default</option>
+		</select>
+		<button id="saveSettings">Save</button>
+		<button class="newList">New</button>
+		<p>Size: <input id="sizeInput" type="range" name="range" min="-5" max="5"></p>
+	</div>
+
+	<div id="newListSettings" style="display: none">
+		<h1>Give a name to your new list</h1>
+		<input name="list_name" id="list_name" required>
+		<button id="addList">Add list</button>
+		<button id="cancelSettings">Cancel</button>
+	</div>
+
 	<!-- If there is a current user logged in -->
 	<% if @current_user %>
 		<!-- the save settings button and field-->
-		<form id="settings-save">
+		<!--<form id="settings-save">-->
 		 <!-- <nav>
 		    <ul>
 		      <li class="settings-save">
 		        <a href="#" class="save-settings" title="save">SAVE</a> -->
-		    <div id="save-settings">
+		  <!--  <div id="save-settings">
 		    	<h1>Give a name to your settings</h1>
 		        <input name="settings-name" id="settings-name" placeholder="settings name">
 		        <!-- I can add 'required' after the placeholder if I need -->
-		        <button>Save settings</button>
+		      <!--  <button>Save settings</button>
 		        <button id="cancelSettings">Cancel</button>
 		    </div>
 		     <!-- </li>
 		    </ul>
 		  </nav>-->
-		</form>
+	<!--	</form>-->
 
 		<!-- an empty spot for adding the saved loops as buttons -->
 		<!-- need to add the new saved loop to the drop down in the controls panel -->

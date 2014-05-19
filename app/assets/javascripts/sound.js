@@ -8,7 +8,7 @@ var analyser;
 var buffer;
 var boost = 0;
 var array = new Array();
-var url = 'sound/Hungry_Face.mp3'
+//var url = 'Hungry_Face.mp3'
 var microphoneOn = false;
 
 //------------------------ CREATE AUDIO CONTEXT --------------------------
@@ -28,7 +28,8 @@ var request;
 //Function to be called on document.ready
 var playSong = function(){
 		request = new XMLHttpRequest();
-		request.open("GET", url, true);
+		//request.open("GET", url, true);
+		request.open("GET", "Hungry_Face.mp3", true);
 		request.responseType = 'arraybuffer';
 
 	    request.onload = function(){
@@ -75,8 +76,8 @@ var playSong = function(){
 	    				for(var i = 0; i < array.length; i++){
 	    					boost += array[i];
 	    				}
-	    				boost = (boost / array.length) * (value * 2);
-	    				console.log(value)
+	    				boost = (boost / array.length) * (sizeValue * 2);
+	    				console.log(sizeValue)
 	    			};
 		   			play();
 	    		}

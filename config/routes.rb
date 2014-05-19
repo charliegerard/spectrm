@@ -7,14 +7,14 @@ Sync::Application.routes.draw do
   post '/signup' => 'users#create'
   post '/users' => 'users#create'
 
-  #post 'index' => 'session#new'
-  # get '/login' => 'session#new'
-  # post '/login' => 'session#create'
-  # delete '/login' => 'session#destroy'
-
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
+
+  get '/settings' => 'settings#index'
+  post '/settings' => 'settings#create'
+  get '/settings/load' => 'settings#load'
+
 
  #get 'users/create' => 'pages#index'
   # get "users/new"

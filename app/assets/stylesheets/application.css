@@ -169,3 +169,34 @@ canvas{
 	font-size: 19px;
 	text-align: center;
 }
+
+#saving{
+	display: block;
+	width: 10%;
+	background-color: white;
+	float: right;
+}
+
+.control_panel{
+	position: absolute;
+	right: 10px;
+}
+.control_panel p{
+	color: white;
+}
+
+#newListSettings{
+	position: absolute;
+	display: block;
+	width: 40%;
+	padding: 2%;
+	margin: 10% 30%;
+	text-align: center;
+	background-color: rgb(39,39,39);
+	opacity: 0.9;
+}
+
+#newListSettings h1{
+	font-weight: 300;
+	font-size: 20px;
+}
