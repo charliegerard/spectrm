@@ -82,11 +82,12 @@ canvas{
 #login-choice{
 	background-color: rgb(39,39,39);
 	display: block;
-	margin: 15% auto;
+	margin: 15% 35%;
 	width: 25%;
 	text-align: center;
 	opacity: 0.9;
 	padding: 2%;
+	position: absolute;
 }
 
 #login-choice h1{
@@ -100,9 +101,10 @@ canvas{
 	background-color: rgb(39,39,39);
 	padding: 2%;
 	width: 45%;
-	margin: 10% auto;
+	margin: 10% 25%;
 	opacity: 0.9;
 	text-align: center;
+	position: absolute;
 	color: white;
 }
 
@@ -121,6 +123,7 @@ canvas{
 	height: auto;
 	padding: 2%;
 	text-align: center;
+	position: absolute;
 }
 
 .sign-up h1{

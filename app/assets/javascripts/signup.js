@@ -1,26 +1,28 @@
-var signUp = function(){
-	$('.button.save').click(function(){
-		$('#login-choice').fadeIn();
+// var signUp = function(){
+// 	// $('#saveSettings').click(function(){
+// 	// 	$('#login-choice').fadeIn();
 
-		$('#signup-choice').click(function(){
-			$('#login-choice').fadeOut();
-			$('.sign-up').fadeIn();
-		});
+// 	// 	$('#signup-choice').click(function(event){
+// 	// 		event.preventDefault();
+// 	// 		$('#login-choice').fadeOut();
+// 	// 		$('.sign-up').fadeIn();
+// 	// 	});
 
-		$('#signin-choice').click(function(){
-			$('#login-choice').fadeOut();
-			$('#sign-in-form').fadeIn();
-		});
+// 	// 	$('#signin-choice').click(function(event){
+// 	// 		event.preventDefault();
+// 	// 		$('#login-choice').fadeOut();
+// 	// 		$('#sign-in-form').fadeIn();
+// 	// 	});
 
-		$('.cancel_button').click(function(event){
-			event.preventDefault();
-			$('.sign-up').fadeOut();
-			$('#sign-in-form').fadeOut();
-		});
-	});
+// 	// 	$('.cancel_button').click(function(event){
+// 	// 		event.preventDefault();
+// 	// 		$('.sign-up').fadeOut();
+// 	// 		$('#sign-in-form').fadeOut();
+// 	// 	});
+// 	// });
 
-	$('#cancelSettings').click(function(event){
-		event.preventDefault();
-		$('#save-settings').fadeOut();
-	});
-}
+// 	// $('#cancelSettings').click(function(event){
+// 	// 	event.preventDefault();
+// 	// 	$('#save-settings').fadeOut();
+// 	// });
+// }

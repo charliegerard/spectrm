@@ -12,6 +12,7 @@ var cube = function(){
 	var cubes = new Array(); //Array of cubes
 	var controls;
 	//console.log(FFTData)
+	console.log(array)
 
 	document.body.appendChild(renderer.domElement);
 
@@ -96,8 +97,17 @@ var cube = function(){
 			for(var i = 0; i <cubes.length; i++){
 				for(var j = 0; j < cubes[i].length; j++){
 					var scale = (array[k]  + boost)/ 30; // THE LAST VALUE IMPACTS ON THE HEIGHT OF THE CUBES
+					//Here you can play around with the different settings as long as you use the 'scale' variable.
 					cubes[i][j].scale.z = (scale < 1 ? 1 : scale);
+					//cubes[i][j].scale.x = (scale < 1 ? 1 : scale);
+					//cubes[i][j].position = new THREE.Vector3(scale,scale,scale);
+					//cubes[i][j].position = new THREE.Vector3(scale,y,30);
+					//cubes[i][j].rotation.x += scale
+					//cubes[i][j].rotation.y += scale
+					//This one is interesting:
+					//cubes[i][j].rotation.z += scale/30
 					k += (k < array.length ? 1 : 0);
+						//console.log(array)
 				}
 			}
 		}
