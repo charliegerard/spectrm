@@ -13,13 +13,13 @@ var microphoneOn = false;
 
 //------------------------ CREATE AUDIO CONTEXT --------------------------
 //
-if (typeof AudioContext !== "undefined") {
-    context = new AudioContext();
-} else if (typeof webkitAudioContext !== "undefined") {
-    context = new webkitAudioContext();
-} else {
-    return;
-}
+// if (typeof AudioContext !== "undefined") {
+//     context = new AudioContext();
+// } else if (typeof webkitAudioContext !== "undefined") {
+//     context = new webkitAudioContext();
+// } else {
+//     return;
+// }
 
 //----------------------- Request URL with sound -------------------------
 //
