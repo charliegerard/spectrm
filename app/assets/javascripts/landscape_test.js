@@ -1,13 +1,9 @@
-// $(document).ready(function(){	
-// 	 controllerSpeed.onChange(function(value){
-// 	   	console.log("value changed", value)
-// 	 });
-// });
-var landscapeNew = function(){
+
+var city = function(){
 	//Creating the scene and objects
 	var scene = new THREE.Scene();
 										  // fov,aspect,                              near,far
-	var camera = new THREE.PerspectiveCamera(100, $(window).width() / $(window).height(), 1, 1000);
+	var camera = new THREE.PerspectiveCamera(60, $(window).width() / $(window).height(), 1, 1000);
 	var renderer = new THREE.WebGLRenderer();
 	var buildings = new Array(); //Array of buildings
 	var controls;
@@ -16,24 +12,26 @@ var landscapeNew = function(){
 
 	//x and y seem to be the number of rows and columns
 	var i=0;
-	for(var x = 0; x < 50; x +=2){
+	for(var x = 0; x < 200; x +=10){
 		var j = 0;
 		buildings[i] = new Array();
-		for(var y = 0; y < 70; y+=15 ){
-			var geometry = new THREE.CubeGeometry(1, 1, 1.5);
+		for(var y = 0; y < 200; y+=10 ){
+			var geometry = new THREE.CubeGeometry(3, 10, 3);
 
 			var material = new THREE.MeshPhongMaterial({
-				color: randomFairColor(),
+				//color: randomFairColor(),
+				color: 'green',
 				ambient: '0x808080',
 				specular: 0xffffff,
-				shininess: 10,
+				shininess: 5,
 				reflectivity: 1.5
 			});
 
 			//Not sure how this part works, need to figure out.
 			buildings[i][j] = new THREE.Mesh(geometry, material);
 			//Left position on screen??
-			buildings[i][j].position = new THREE.Vector3(x,0,y);
+			// buildings[i][j].position = new THREE.Vector3(x,0,y-50);
+			buildings[i][j].position = new THREE.Vector3(x,-10,y-50);
 
 
 			//cubes[i][j].rotateOnAxis(y, 90)
@@ -75,9 +73,9 @@ var landscapeNew = function(){
 	scene.add(directionalLight);
 
 	//to see buildings horizontally z is 50 and y is 2
-	camera.position.z = 150;
-	camera.position.y = 3;
-	//camera.position.x = 10
+	camera.position.z = 50;
+	camera.position.y = 20;
+	camera.position.x = -100
 
 	//Allows to move the camera??
 	// controls = new THREE.OrbitControls(camera);

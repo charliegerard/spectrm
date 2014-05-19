@@ -31,8 +31,8 @@ $(document).ready(function(){
 		landscape();
 	});
 
-	$('#landscapeNew').click(function(){
-		landscapeNew();
+	$('#city').click(function(){
+		city();
 	});
 
 	if (window.location.hash) {

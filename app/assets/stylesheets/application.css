@@ -269,7 +269,7 @@ input#sizeInput{
 	bottom: 0;
 }
 
-#credits p, a{
+#credits p, #credits a{
 	color: grey;
 	font-weight: 300;
 	font-size: 12px;
