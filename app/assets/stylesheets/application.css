@@ -183,11 +183,66 @@ canvas{
 
 .control_panel{
 	position: absolute;
-	right: 10px;
+	right: 0.3%;
+	background-color: rgb(39,39,39);
+	opacity: 0.9;
+	top: 0;
+	padding: 0.5%;
+	width: 18%;
+	text-align: center;
 }
 .control_panel p{
-	color: white;
+	color: #bbb;
+	font-size: 15px;
+	font-weight: 200;
 }
+
+input#sizeInput{
+	background-color: grey;
+	border-radius: 2em;
+	-webkit-appearance:none; 
+	-moz-apperance:none; 
+	width:80%; 
+	height:4px;
+	display: inline-block;
+}
+
+#saveSettings, .newList{
+	padding: 1% 2%;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: white;
+	background-color: grey;
+	border: none;
+	width: auto;
+	display: inline-block;
+	font-size: 12px;
+}
+
+.deleteList, .lists{
+	padding: 1% 2%;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	color: white;
+	background-color: grey;
+	border: none;
+	width: auto;
+	display: inline-block;
+	font-size: 12px;
+}
+
+#closeControls{
+	background-color: rgb(39,39,39);
+	text-align:center;
+	width: 100%;
+	color: #bbb;
+	font-weight: 300;
+	font-size: 15px;
+	margin-top: 2%;
+	opacity: 0.9;
+	border-top: 1px solid black;
+}
+
 
 #newListSettings{
 	position: absolute;

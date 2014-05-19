@@ -93,5 +93,19 @@ $(document).ready(function(){
     $('#sizeInput').val(size);
   });
 
+  var close = false;
+
+  $('#closeControls').click(function(){
+    if(close === false){
+      close = true
+      $('#closeControls').html('Open controls');
+    }else if(close === true){
+      close = false
+      $('#closeControls').html('Close controls');
+    }
+    $('#inner_panel').slideToggle('slow', function(){
+    });
+  });
+
 });
 
