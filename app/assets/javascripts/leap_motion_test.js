@@ -4,12 +4,13 @@
 // 	 });
 // });
 
-var cube = function(){
+var leap = function(){
 	//Creating the scene and objects
 	var scene = new THREE.Scene();
 	var camera = new THREE.PerspectiveCamera(60, $(window).width() / $(window).height(), 1, 1000);
 	var renderer = new THREE.WebGLRenderer();
 	var cubes = new Array(); //Array of cubes
+	var state  = null;
 	//var controls;
 	//console.log(FFTData)
 	//console.log(array)
@@ -115,6 +116,35 @@ var cube = function(){
 		requestAnimationFrame(render);
 		//Supposed to update OrbitControls to move the shapes
 		//controls.update();
+
+		Leap.loop(function(frame) {
+	        if (frame.valid) {
+	          if (state == null) {
+	            if (frame.hands.length > 0 && frame.pointables.length <= 2) {
+	              startFrame = frame;
+	              startX = camera.position.x;
+	              //startY = camera.position.y;
+	              startZ = camera.position.z;
+	              //camera.rotation.x = startX;
+	              //camera.rotation.z = startY;
+	              state = 'moving';
+	            }
+	          } else if (state == 'moving') {
+	            var t = startFrame.translation(frame);
+	            camera.position.x = t[0] + startX;
+	            //camera.position.y = t[1] + startY;
+	            camera.position.z = t[2] + startZ;
+
+	            //I don't think camera.rotation exists
+	           	//camera.rotation.y = startX;
+	            //camera.rotation.z = startY;
+	            if (frame.hands.length == 1 || frame.pointables.legnth > 1) {
+	              state = null;
+	            }
+	          }
+	        }
+	        //renderer.render(scene, camera);
+      	});
 
 		renderer.render(scene, camera);
 	};

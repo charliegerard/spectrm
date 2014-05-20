@@ -40,6 +40,10 @@ $(document).ready(function(){
 		sphere();
 	});
 
+	$('#leap').click(function(){
+		leap();
+	});
+
 	if (window.location.hash) {
 		$(window.location.hash).trigger('click');
 	}
