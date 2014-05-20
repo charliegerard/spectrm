@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	cube();
+	//var sizeValue = 1;
 	//controlPanel();
 	//controllerSize;
 	//signUp();

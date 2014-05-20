@@ -12,7 +12,7 @@ window.requestAnimFrame = (function(){
  var array;
  var boost = 0;
  //var microphoneOn = true
- var sizeValue;
+ //var sizeValue = 1;
 
 //--------------  ACCESSING THE MICROPHONE ------------
 //This helped a lot: http://updates.html5rocks.com/2012/09/Live-Web-Audio-Input-Enabled
@@ -43,7 +43,7 @@ window.requestAnimFrame = (function(){
 
   		//ANALYSES THE INPUT FROM MICROPHONE BUT DON'T KNOW HOW
   		function process(){
-        sizeValue = parseInt($('input').val());
+        sizeValue = parseInt($('#sizeInput').val());
         if (window.microphoneOn === false) {
           microphone.disconnect(0);
           //Need to set the analyser to null to stop the animation.
@@ -70,6 +70,7 @@ window.requestAnimFrame = (function(){
       					boost += array[i];
       				}
       				boost = (boost / array.length) * (sizeValue * 2);
+              //boost = (boost / array.length);
               //value is the value got from the slider in the control panel.
               //I multiply it by 2 just so the visual impact is more important.
       			//};

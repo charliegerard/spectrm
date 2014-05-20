@@ -44,9 +44,9 @@ h1{
 .menu{
 	background-color: rgb(39,39,39);
 	display: block;
-	width: 11%;
+	width: 12.5%;
 	height: auto;
-	padding: 0 0.5% 1% 1%;
+	padding: 0 0.5% 1% 0.5%;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -56,6 +56,16 @@ h1{
 .menu a{
 	color: white;
 	text-decoration: none;
+}
+
+#twitter{
+	margin-top: 10%;
+	width: 60%;
+	display: inline-block;
+}
+
+#github{
+	display: inline-block;
 }
 
 #microphone, #song{

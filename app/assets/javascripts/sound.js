@@ -10,7 +10,7 @@ var boost = 0;
 var array = new Array();
 var url = 'Hungry_Face.mp3'
 //window.microphoneOn = false;
-var sizeValue;
+//var sizeValue = 1;
 
 //------------------------ CREATE AUDIO CONTEXT --------------------------
 //
@@ -66,7 +66,7 @@ var playSong = function(){
 	    			//When the sound is playing, do that:
 	 
 	    			sourceJs.onaudioprocess = function(e){
-	    				sizeValue = parseInt($('input').val());
+	    				sizeValue = parseInt($('#sizeInput').val());
 
 	    				array = new Uint8Array(analyser.frequencyBinCount);
 	    				//Puts the sound data in the analyser?
@@ -78,7 +78,8 @@ var playSong = function(){
 	    				for(var i = 0; i < array.length; i++){
 	    					boost += array[i];
 	    				}
-	    				boost = (boost / array.length) * (sizeValue * 2);
+	    				// boost = (boost / array.length) * (sizeValue * 2);
+	    				boost = (boost / array.length);
 	    			};
 		   			play();
 	    		}

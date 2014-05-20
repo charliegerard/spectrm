@@ -10,9 +10,9 @@ var cube = function(){
 	var camera = new THREE.PerspectiveCamera(60, $(window).width() / $(window).height(), 1, 1000);
 	var renderer = new THREE.WebGLRenderer();
 	var cubes = new Array(); //Array of cubes
-	var controls;
+	//var controls;
 	//console.log(FFTData)
-	console.log(array)
+	//console.log(array)
 
 	document.body.appendChild(renderer.domElement);
 

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     before_filter :check_if_logged_in, :except => [:show, :new, :create]
 
   def index
-    @user = User.all
+      @user = User.all
   end
 
   def create
@@ -27,12 +27,15 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find params[:id]
+    @user.update_attributes params[:user]
+    redirect_to root_path
   end
 
   def destroy
     user = User.find params[:id]
     user.destroy
-    #redirect_to users_path, :notice => "user deleted"
+    redirect_to root_path, :notice => "user deleted"
   end
 
     private
