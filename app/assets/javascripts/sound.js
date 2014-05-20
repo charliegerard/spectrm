@@ -78,8 +78,8 @@ var playSong = function(){
 	    				for(var i = 0; i < array.length; i++){
 	    					boost += array[i];
 	    				}
-	    				// boost = (boost / array.length) * (sizeValue * 2);
-	    				boost = (boost / array.length);
+	    				boost = (boost / array.length) * (sizeValue * 2);
+	    				//boost = (boost / array.length);
 	    			};
 		   			play();
 	    		}

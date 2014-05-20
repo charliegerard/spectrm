@@ -1,8 +1,13 @@
+var sizeValue = 1;
+var lines = new Array();
+
 var sphere = function(){
 	var SCREEN_WIDTH = window.innerWidth,
 	SCREEN_HEIGHT = window.innerHeight,
 
-	radius = 450,
+	radius = 300,
+	//Original size:
+	//radius = 450,
 
 	mouseX = 0, mouseY = 0,
 
@@ -25,7 +30,7 @@ var sphere = function(){
 		//Setting up the camera.
 		camera = new THREE.PerspectiveCamera(80, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 3000);
 		//Setting up the z position of the camera.
-		camera.position.z = 1000;
+		camera.position.z = 1500;
 
 		//creating a scene.
 		scene = new THREE.Scene();
@@ -44,14 +49,15 @@ var sphere = function(){
 				vertex1.y = Math.random() * 2 - 1;
 				vertex1.z = Math.random() * 2 - 1;
 				vertex1.normalize();
-				vertex1.multiplyScalar( r );
+				vertex1.multiplyScalar( radius );
 
 				vertex2 = vertex1.clone();
 				vertex2.multiplyScalar( Math.random() * 0.09 + 1 );
 
 				//Push the vertices in the object.
 				geometry.vertices.push( vertex1 );
-				geometry.vertices.push( vertex2 );
+				//Removing the vertex2 makes the shape more flat and gives it an interesting feeling
+				//geometry.vertices.push( vertex2 );
 		}
 
 		for( i = 0; i < parameters.length; ++ i ) {
@@ -63,9 +69,11 @@ var sphere = function(){
 
 			//The sphere object is made of lines.
 			line = new THREE.Line( geometry, material, THREE.LinePieces );
-			line.scale.x = line.scale.y = line.scale.z = p[ 0 ];
+			line.scale.x = line.scale.y = line.scale.z = p[0];
 			line.originalScale = p[ 0 ];
 			line.rotation.y = Math.random() * Math.PI;
+			//Test
+			//line.rotation.y = Math.random() * 2;
 			line.updateMatrix();
 			//Add the lines to the scene.
 			scene.add( line );
@@ -103,6 +111,7 @@ var sphere = function(){
 	function onDocumentMouseMove( event ) {
 
 		mouseX = event.clientX - windowHalfX;
+		//mouseX = event.clientX * 50;
 		mouseY = event.clientY - windowHalfY;
 
 	}
@@ -138,7 +147,11 @@ var sphere = function(){
 	//This function actually renders everything on the screen.
 	function render() {
 		//Updates the position of the camera depending on the movement of the mouse?
-		camera.position.y += ( - mouseY + 200 - camera.position.y ) * .05;
+		camera.position.y -= (  mouseY + 1000 + camera.position.y ) * .05;
+		camera.position.x -= (  mouseX + 1000 + camera.position.x ) * .05;
+		//camera.position.y += (  mouseY + 200 ) * 1;
+		//camera.position.y = 100;
+		//camera.position.z = -3000;
 		camera.lookAt( scene.position );
 
 		//Rendering everything.
@@ -146,15 +159,33 @@ var sphere = function(){
 
 		//Not sure about that... Speed?
 		var time = Date.now() * 0.0001;
+		// var time = Date.now() * 0.0001 * (boost / 10);
 
-		for ( var i = 0; i < scene.children.length; i ++ ) {
+		if(typeof array === 'object' && array.length > 0) {
+			//console.log(array.length)
+			var k = 0;
+			for ( var i = 0; i < scene.children.length; i ++ ) {
+				//for(var j = 0; j < scene.children[i].length; j++){
 
-			var object = scene.children[ i ];
+					var scale = (array[k]  + boost)/2; // THE LAST VALUE IMPACTS ON THE HEIGHT OF THE CUBES
+		 			//scene.children[i].scale.y = (scale < 1 ? 1 : scale);
+		 			scene.children[i].scale.x = (scale < 1 ? 1 : scale);
+		 			//scene.children[i].scale.y = (scale < 1 ? 1 : scale);
+		 			k += (k < array.length ? 1 : 0);
+		 			//console.log(boost)
 
-			//Rotates the shape and and gives the effect of back and forth.
-			if ( object instanceof THREE.Line ) {
-				object.rotation.y = time * ( i < 4 ? ( i + 1 ) : - ( i + 1 ) );
-				if ( i < 5 ) object.scale.x = object.scale.y = object.scale.z = object.originalScale * (i/5+1) * (1 + 0.5 * Math.sin( 7*time ) );
+					var object = scene.children[ i ];
+					// object.scale.y = (scale < 1 ? 1 : scale/100);
+					object.scale.y = (scale < 1 ? 1 : scale/5);
+					object.scale.x = (scale < 1 ? 1 : scale/5)
+
+					// //Rotates the shape and and gives the effect of back and forth.
+					// if ( object instanceof THREE.Line ) {
+					// // 	//object.rotation.y = time * ( i < 4 ? ( i + 1 ) : - ( i + 1 ) );
+					// if ( i < 5 ) object.scale.x = object.scale.y = object.scale.z = object.originalScale * (i/5+1) * (1 + 0.5 * Math.sin( 7 * (scale < 1 ? 1 : scale) ) );
+					//  	if ( i < 1 ) object.scale.x = object.scale.y = object.scale.z = object.originalScale * (i/5+1) * (1 + 5 * Math.sin( 5* (scale < 1 ? 1 : scale) ) );
+					// }
+				//}
 			}
 		}
 	} //End of render
