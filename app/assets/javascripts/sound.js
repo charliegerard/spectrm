@@ -67,7 +67,7 @@ var playSong = function(){
 	 
 	    			sourceJs.onaudioprocess = function(e){
 	    				sizeValue = parseInt($('#sizeInput').val());
-
+	    				//array is the data we need to use to update each 3D shape.
 	    				array = new Uint8Array(analyser.frequencyBinCount);
 	    				//Puts the sound data in the analyser?
 	    				analyser.getByteFrequencyData(array);
@@ -90,9 +90,6 @@ var playSong = function(){
 
 	//Plays the sound when you press on the 'SONG' button
 	 function play() {
-	 	// $('#play').fadeOut('normal', function() {
-	 	// 	$(this).remove();
- 		// });
 	 	source.noteOn(0);
 	}
 };

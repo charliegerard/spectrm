@@ -1,8 +1,3 @@
-// $(document).ready(function(){	
-// 	 controllerSpeed.onChange(function(value){
-// 	   	console.log("value changed", value)
-// 	 });
-// });
 
 var cube = function(){
 	//Creating the scene and objects
@@ -11,8 +6,6 @@ var cube = function(){
 	var renderer = new THREE.WebGLRenderer();
 	var cubes = new Array(); //Array of cubes
 	//var controls;
-	//console.log(FFTData)
-	//console.log(array)
 
 	document.body.appendChild(renderer.domElement);
 
@@ -96,7 +89,7 @@ var cube = function(){
 			var k = 0;
 			for(var i = 0; i <cubes.length; i++){
 				for(var j = 0; j < cubes[i].length; j++){
-					var scale = (array[k]  + boost)/ 30; // THE LAST VALUE IMPACTS ON THE HEIGHT OF THE CUBES
+					var scale = (array[k]  + boost) / 20; // THE LAST VALUE IMPACTS ON THE HEIGHT OF THE CUBES
 					//Here you can play around with the different settings as long as you use the 'scale' variable.
 					cubes[i][j].scale.z = (scale < 1 ? 1 : scale);
 					//cubes[i][j].scale.x = (scale < 1 ? 1 : scale);
@@ -130,6 +123,11 @@ var cube = function(){
 		var g = (Math.floor(Math.random() * (max - min + 1)) + min) * 256;
 		var b = (Math.floor(Math.random() * (max - min + 1)) + min);
 		return r + g + b;
+	}
+
+
+	function init(options){
+		audioSource = options.audioSource;
 	}
 }//End of cube function
 

@@ -4,6 +4,8 @@
 // 	 });
 // });
 
+//https://developer.leapmotion.com/libraries/165
+
 var leap = function(){
 	//Creating the scene and objects
 	var scene = new THREE.Scene();
