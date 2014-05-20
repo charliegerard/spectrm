@@ -36,6 +36,10 @@ $(document).ready(function(){
 		city();
 	});
 
+	$('#sphere').click(function(){
+		sphere();
+	});
+
 	if (window.location.hash) {
 		$(window.location.hash).trigger('click');
 	}
