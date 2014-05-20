@@ -10,6 +10,7 @@ Sync::Application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
+  #get '/logout' => 'session#destroy'
 
   get '/settings' => 'settings#index'
   post '/settings' => 'settings#create'

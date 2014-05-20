@@ -14,13 +14,16 @@ class SessionController < ApplicationController
 		# end
 
 		user = User.where(:email => params[:email]).first
+
 		if user.present? && user.authenticate(params[:password])
 			session[:user_id] = user.id
-			redirect_to root_path
+			#redirect_to root_path
+			render :json => user.username.to_json
 		else
 			session[:user_id] = nil
-			flash[:notice] = "Incorrect login details"
-			redirect_to root_path
+			#flash[:notice] = "Incorrect login details"
+			#redirect_to root_path
+			render :json => false
 		end
 	end
 

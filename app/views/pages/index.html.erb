@@ -118,7 +118,7 @@
 					<%= text_field_tag :email, params[:email], :autofocus => true, :required => true %>
 					<%= label_tag :password %>
 					<%= password_field_tag :password, :required => true %>
-					<%= submit_tag "Sign in" %>
+					<%= submit_tag "Sign in", class:'signInButton' %>
 					<button class="cancel_button">Cancel</button>
 				<% end %>
 

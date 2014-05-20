@@ -62,6 +62,27 @@ $(document).ready(function(){
 		$('#sign-in-form').fadeIn();
 	});
 
+	$('.signInButton').click(function(event){
+		event.preventDefault();
+
+		var user_email = $('#email').val();
+		var user_password = $('#password').val();
+
+		$.ajax({
+			url: '/login',
+			type: 'POST',
+			datatype: 'json',
+			data: {email : user_email, password : user_password}
+		}).done(function(data){
+			console.log(data)
+
+			if(data){
+				$('#sign-in-form').fadeOut();
+				$('.menu').append('<a href="/login" action="delete">' + 'Sign out' + data + '</a>')
+			}
+		})
+	});
+
 	$('.cancel_button').click(function(event){
 		event.preventDefault();
 		$('.sign-up').fadeOut();
