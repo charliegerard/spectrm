@@ -60,25 +60,24 @@ $(document).ready(function(){
     sizeValue = parseInt($('input').val());
     listName = ($('.lists')[0].value);
     var list = $('.lists');
-    $.ajax({
-      url: 'settings/destroy',
-      type: 'DELETE',
-      dataType: 'json',
-      //data: {name: listName}
-      data: {setting: {name: listName, details: {size: sizeValue}}}
-    }).done(function(data){
-     //debugger
-      console.log('list deleted')
-      var singleList = $('option[value="' + data[0].name + '"]')
-      list.find(singleList).remove();
-    })
+    if( !($(this).closest('#inner_panel').find(':selected').data('id'))){
+      $(this).closest('#inner_panel').find(':selected').remove();
+    } else {
+      $.ajax({
+        url: 'settings/destroy',
+        type: 'DELETE',
+        dataType: 'json',
+        //data: {name: listName}
+        data: {setting: {name: listName, details: {size: sizeValue}}}
+      }).done(function(data){
+       //debugger
+        console.log('list deleted')
+        var singleList = $('option[value="' + data[0].name + '"]')
+        list.find(singleList).remove();
+      })
+    }
   });
 
-//Clicking on the new button to add a new list to the dropdown.
-  // $('#newList').click(function(){
-  //   $('#newListSettings').fadeIn();
-  //   //Removing the popup when clicking on cancel.
-  // });
   $('#cancelSettings').click(function(event){
      event.preventDefault();
      $('#newListSettings').fadeOut();
