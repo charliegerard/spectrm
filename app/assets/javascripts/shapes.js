@@ -71,6 +71,8 @@ var cube = function(){
 	scene.add(directionalLight);
 
 	camera.position.z = 70;
+	camera.position.x = -1
+	camera.position.y = -2
 
 	//Allows to move the camera??
 	// controls = new THREE.OrbitControls(camera);

@@ -1,15 +1,11 @@
+/* This uses the SoundCloud API (you can register your app and get your client id here: https://developers.soundcloud.com/).
+The url entered in the input field gets back the song that is then analysed using the Web Audio API.
 
-/**
- * The *AudioSource object creates an analyzer node, sets up a repeating function with setInterval
- * which samples the input and turns it into an FFT array. The object has two properties:
- * streamData - this is the Uint8Array containing the FFT data
- * volume - cumulative value of all the bins of the streaData.
- *
- * The MicrophoneAudioSource uses the getUserMedia interface to get real-time data from the user's microphone. Not used currently but included for possible future use.
+This helped a lot: http://www.michaelbromley.co.uk/blog/42/audio-visualization-with-web-audio-canvas-and-the-soundcloud-api
+ https://github.com/michaelbromley/soundcloud-visualizer/blob/master/js/app.js
  */
 
 var SoundCloudAudioSource = function(player) {
-    //var self = this;
     var audioCtx = new (window.AudioContext || window.webkitAudioContext);
     var source = audioCtx.createMediaElementSource(player);
   	var analyser = audioCtx.createAnalyser();
@@ -18,23 +14,19 @@ var SoundCloudAudioSource = function(player) {
     analyser.connect(audioCtx.destination);
 
     var sampleAudioStream = function() {
-    	 sizeValue = parseInt($('#sizeInput').val());
-    	// this.streamData = new Uint8Array(128);
-
-    	// array = newUint8Array(128);
+    	sizeValue = parseInt($('#sizeInput').val());
     	array = new Uint8Array(analyser.frequencyBinCount)
-        // analyser.getByteFrequencyData(self.streamData);
 
+        //Using this to influence the size of the shape when the slider is changed in the control panel.
         boost = 0;
       	//Not sure about that. 
       	for(var i = 0; i < array.length; i++){
       		boost += array[i];
       	}
       	boost = (boost / array.length) * (sizeValue * 2);
-      	//console.log(sizeValue)
 
         analyser.getByteFrequencyData(array);
-        requestAnimationFrame(sampleAudioStream)
+        requestAnimationFrame(sampleAudioStream);
     };
 
     requestAnimationFrame(sampleAudioStream)
@@ -54,7 +46,7 @@ var SoundCloudAudioSource = function(player) {
  */
 var SoundcloudLoader = function(player) {
     var self = this;
-    var client_id = "0f51b1e1e15add18752bc0cb4522134a"; // to get an ID go to http://developers.soundcloud.com/
+    var client_id = "0f51b1e1e15add18752bc0cb4522134a"; // I should hide this I know.
     this.sound = {};
     this.streamUrl = "";
     this.errorMessage = "";
@@ -63,9 +55,8 @@ var SoundcloudLoader = function(player) {
     /**
      * Loads the JSON stream data object from the URL of the track (as given in the location bar of the browser when browsing Soundcloud),
      * and on success it calls the callback passed to it (for example, used to then send the stream_url to the audiosource object).
-     * @param track_url
-     * @param callback
      */
+
     this.loadStream = function(track_url, successCallback, errorCallback) {
         SC.initialize({
             client_id: client_id
@@ -76,10 +67,9 @@ var SoundcloudLoader = function(player) {
                 for (var i = 0; i < sound.errors.length; i++) {
                     self.errorMessage += sound.errors[i].error_message + '<br>';
                 }
-                self.errorMessage += 'Make sure the URL has the correct format: https://soundcloud.com/user/title-of-the-track';
+                self.errorMessage += 'Please make sure the URL has the right format: https://soundcloud.com/user/title-of-the-track';
                 errorCallback();
             } else {
-
                 if(sound.kind=="playlist"){
                     self.sound = sound;
                     self.streamPlaylistIndex = 0;
@@ -95,7 +85,6 @@ var SoundcloudLoader = function(player) {
             }
         });
     };
-
 
     this.directStream = function(direction){
         if(direction=='toggle'){
