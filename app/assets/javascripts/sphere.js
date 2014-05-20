@@ -1,3 +1,6 @@
+//This shape has been inspired by this example: http://threejs.org/examples/#webgl_lines_sphere
+//You can find the source code here: http://threejs.org/examples/webgl_lines_sphere.html
+
 var sizeValue = 1;
 var lines = new Array();
 
@@ -6,7 +9,7 @@ var sphere = function(){
 	SCREEN_HEIGHT = window.innerHeight,
 
 	radius = 300,
-	//Original size:
+	//original size:
 	//radius = 450,
 
 	mouseX = 0, mouseY = 0,
@@ -151,7 +154,7 @@ var sphere = function(){
 		camera.position.x -= (  mouseX + 1000 + camera.position.x ) * .05;
 		//camera.position.y += (  mouseY + 200 ) * 1;
 		//camera.position.y = 100;
-		//camera.position.z = -3000;
+		camera.position.z = -3000;
 		camera.lookAt( scene.position );
 
 		//Rendering everything.
@@ -180,11 +183,11 @@ var sphere = function(){
 					object.scale.x = (scale < 1 ? 1 : scale/5)
 
 					// //Rotates the shape and and gives the effect of back and forth.
-					// if ( object instanceof THREE.Line ) {
-					// // 	//object.rotation.y = time * ( i < 4 ? ( i + 1 ) : - ( i + 1 ) );
-					// if ( i < 5 ) object.scale.x = object.scale.y = object.scale.z = object.originalScale * (i/5+1) * (1 + 0.5 * Math.sin( 7 * (scale < 1 ? 1 : scale) ) );
+					 if ( object instanceof THREE.Line ) {
+					  	object.rotation.y = time * ( i < 4 ? ( i + 1 ) : - ( i + 1 ) );
+					 //if ( i < 5 ) object.scale.x = object.scale.y = object.scale.z = object.originalScale * (i/5+1) * (1 + 0.5 * Math.sin( 7 * (scale < 1 ? 1 : scale) ) );
 					//  	if ( i < 1 ) object.scale.x = object.scale.y = object.scale.z = object.originalScale * (i/5+1) * (1 + 5 * Math.sin( 5* (scale < 1 ? 1 : scale) ) );
-					// }
+					 }
 				//}
 			}
 		}
