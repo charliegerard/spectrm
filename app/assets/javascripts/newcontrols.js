@@ -6,9 +6,10 @@ var listName;
 $(document).ready(function(){
 
   $('#saveSettings').click(function(event){
-    console.log('hi');
-    sizeValue = parseInt($('input').val());
+    event.preventDefault();
+    sizeValue = parseInt($('#sizeInput').val());
     listName = ($('.lists')[0].value);
+   console.log(sizeValue, listName)
     $.ajax({
       url: '/settings',
       type: 'POST',
@@ -18,6 +19,12 @@ $(document).ready(function(){
 
     .done(function(data){
       console.log(data)
+      //debugger;
+      //var option = $('option[data-id="' + data[0].id + '"]')
+      var option = $('option[value="' + data.name + '"]')
+      //New size
+      option.data().size = data.details.size
+      $('#sizeInput').val(option.data().size);
     })
 
     .fail(function(){
@@ -59,10 +66,12 @@ $(document).ready(function(){
       dataType: 'json',
       //data: {name: listName}
       data: {setting: {name: listName, details: {size: sizeValue}}}
-    }).done(function(){
+    }).done(function(data){
+     //debugger
       console.log('list deleted')
+      var singleList = $('option[value="' + data[0].name + '"]')
+      list.find(singleList).remove();
     })
-    list.find('<option value="' + listName + '">' + listName + '</option>').remove();
   });
 
 //Clicking on the new button to add a new list to the dropdown.

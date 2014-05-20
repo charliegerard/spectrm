@@ -8,15 +8,17 @@ class SettingsController < ApplicationController
 	end
 
 	def create
-		settingName = Setting.where(:name => params[:setting][:name], :user_id => @current_user.id) 
+
+		settingName = Setting.where(:name => params[:setting][:name], :user_id => @current_user.id)[0]
 		if settingName.present?
-			setting = settingName[0].update_attributes(params[:setting])
+			settingName.update_attributes(params[:setting])
+			settingName
 		else
-			setting = @current_user.settings.create(params[:setting])
+			settingName = @current_user.settings.create(params[:setting])
 		end
-		#binding.pry
-		if setting.save
-			render :json => setting.to_json
+
+		if settingName
+			render :json => settingName.to_json
 		else 
 			render :json => false
 		end
@@ -49,7 +51,7 @@ class SettingsController < ApplicationController
 	    end
 
 	    if setting.destroy
-	      render :json => true
+	      render :json => settingName.to_json
 	    else
 	      render :json => false
 	    end

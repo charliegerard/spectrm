@@ -73,12 +73,16 @@ $(document).ready(function(){
 			type: 'POST',
 			datatype: 'json',
 			data: {email : user_email, password : user_password}
-		}).done(function(data){
-			console.log(data)
+		})
 
+		.done(function(data){
+			console.log(data)
 			if(data){
 				$('#sign-in-form').fadeOut();
-				$('.menu').append('<a href="/login" action="delete">' + 'Sign out' + data + '</a>')
+				$('.menu h3').prepend('<p>' + '<a href="/logout">' + 'Sign out ' + data + '</a>' + '</p>')
+				location.reload();
+			} else {
+				$('#sign-in-form').prepend('<p>' + 'Incorrect email or password' + '</p>')
 			}
 		})
 	});
