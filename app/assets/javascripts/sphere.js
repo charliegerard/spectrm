@@ -1,6 +1,6 @@
 var sphere = function(){
 	var SCREEN_WIDTH = window.innerWidth,
-	var SCREEN_HEIGHT = window.innerHeight,
+	SCREEN_HEIGHT = window.innerHeight,
 
 	radius = 450,
 
