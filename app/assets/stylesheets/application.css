@@ -316,23 +316,6 @@ input#sizeInput{
     background-color: rgba(255, 255, 255, 0.15);
     padding: 7px 10px 3px 10px;
 }
-/*#trackInfoPanel {
-    float: left;
-    width: 100%;
-    overflow: hidden;
-    max-height: 200px;
-	-webkit-transition: max-height 0.8s;
-	-moz-transition: max-height 0.8s;
-	transition: max-height 0.8s;
-    background-color: rgba(255, 255, 255, 0.15);
-    padding-top: 10px;
-}*/
-/*#trackInfoPanel.hidden {
-    max-height: 0px;
-    -webkit-transition: max-height 0.2s;
-    -moz-transition: max-height 0.2s;
-    transition: max-height 0.2s;
-}*/
 
 
 #playerControls {

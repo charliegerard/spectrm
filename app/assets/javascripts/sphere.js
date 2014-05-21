@@ -111,11 +111,9 @@ var sphere = function(){
 
 	//Tracks the movements of the mouse to move the camera accordingly.
 	function onDocumentMouseMove( event ) {
-
 		mouseX = event.clientX - windowHalfX;
 		//mouseX = event.clientX * 50;
 		mouseY = event.clientY - windowHalfY;
-
 	}
 
 	//Not sure what this one does. Maybe not necessary
@@ -142,7 +140,6 @@ var sphere = function(){
 	//Calls the render function with requestAnimationFrame so it is faster.
 	function animate(){
 		requestAnimationFrame( animate );
-
 		render();
 	}
 
@@ -168,7 +165,6 @@ var sphere = function(){
 			var k = 0;
 			for ( var i = 0; i < scene.children.length; i ++ ) {
 				//for(var j = 0; j < scene.children[i].length; j++){
-
 					var scale = (array[k]  + boost)/2; // THE LAST VALUE IMPACTS ON THE HEIGHT OF THE CUBES
 		 			//scene.children[i].scale.y = (scale < 1 ? 1 : scale);
 		 			scene.children[i].scale.x = (scale < 1 ? 1 : scale);
