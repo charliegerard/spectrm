@@ -360,3 +360,18 @@ input#sizeInput{
     border: none;
     height: 1%;
 }
+
+#errorLeap{
+	background-color: rgb(39,39,39);;
+	width: 30%;
+	text-align: center;
+	opacity: 0.8;
+	margin: 10% auto;
+	padding: 2%;
+}
+
+#errorLeap h3{
+	font-size: 17px;
+	color: white;
+	font-weight: 300;
+}

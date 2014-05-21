@@ -118,4 +118,8 @@ $(document).ready(function(){
 		$('#save-settings').fadeOut();
 	});
 
+		        $('#buttonLeap').click(function(e){
+	        		e.preventDefault();
+	        		$('#errorLeap').fadeOut();
+	        	});
 });
