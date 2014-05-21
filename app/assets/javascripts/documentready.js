@@ -10,9 +10,6 @@ $(document).ready(function(){
 			SoundCloud.soundcloudOn = false;
 			SoundCloud.analyser.disconnect();
 			SoundCloud.source.disconnect();
-			//setting the analyser to null here seems to work better than in the function in the microphone js file
-			//analyser = null;
-			//console.log(window.microphoneOn = true)
 			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;	
 		 	navigator.getUserMedia( {audio:true}, gotStream );
 	 });
@@ -30,13 +27,6 @@ $(document).ready(function(){
 			setTimeout(function(){
 				playSong();
 			}, 500);
-			
-
-			// if(soundcloudOn === true){
-			// 	console.log("hello")
-			
-			// }
-
 	});
 
 	$('#form').on('submit', function() {
