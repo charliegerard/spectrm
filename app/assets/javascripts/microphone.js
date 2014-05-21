@@ -11,7 +11,7 @@ window.requestAnimFrame = (function(){
 //MAHTILDA IS AWESOME
  var array;
  var boost = 0;
- //var microphoneOn = true
+ //window.microphoneOn = true;
  //var sizeValue = 1;
 
 //--------------  ACCESSING THE MICROPHONE ------------
@@ -27,7 +27,7 @@ window.requestAnimFrame = (function(){
   		var microphone = audioContext.createMediaStreamSource(stream);
   		var filter = audioContext.createBiquadFilter();
 
-    	var analyser = audioContext.createAnalyser();
+    	    analyser = audioContext.createAnalyser();
     		  analyser.smoothingTimeConstant = 0.5;
       		analyser.fftSize = 512;
     	microphone.connect(analyser)

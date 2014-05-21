@@ -9,7 +9,7 @@ var buffer;
 var boost = 0;
 var array = new Array();
 var url = 'Hungry_Face.mp3'
-//window.microphoneOn = false;
+//window.microphoneOn = true;
 //var sizeValue = 1;
 
 //------------------------ CREATE AUDIO CONTEXT --------------------------

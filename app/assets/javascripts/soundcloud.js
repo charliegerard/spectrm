@@ -5,17 +5,21 @@ This helped a lot: http://www.michaelbromley.co.uk/blog/42/audio-visualization-w
  https://github.com/michaelbromley/soundcloud-visualizer/blob/master/js/app.js
  */
 
+var soundcloudOn;
+var SoundCloud = {};
+
 var SoundCloudAudioSource = function(player) {
-    var audioCtx = new (window.AudioContext || window.webkitAudioContext);
-    var source = audioCtx.createMediaElementSource(player);
-  	var analyser = audioCtx.createAnalyser();
+    SoundCloud.soundcloudOn = true;
+    SoundCloud.audioCtx = new (window.AudioContext || window.webkitAudioContext);
+    SoundCloud.source = SoundCloud.audioCtx.createMediaElementSource(player);
+  	SoundCloud.analyser = SoundCloud.audioCtx.createAnalyser();
     //analyser.fftSize = 256;
-    source.connect(analyser);
-    analyser.connect(audioCtx.destination);
+    SoundCloud.source.connect(SoundCloud.analyser);
+    SoundCloud.analyser.connect(SoundCloud.audioCtx.destination);
 
     var sampleAudioStream = function() {
     	sizeValue = parseInt($('#sizeInput').val());
-    	array = new Uint8Array(analyser.frequencyBinCount)
+    	array = new Uint8Array(SoundCloud.analyser.frequencyBinCount)
 
         //Using this to influence the size of the shape when the slider is changed in the control panel.
         boost = 0;
@@ -25,8 +29,11 @@ var SoundCloudAudioSource = function(player) {
       	}
       	boost = (boost / array.length) * (sizeValue * 2);
 
-        analyser.getByteFrequencyData(array);
-        requestAnimationFrame(sampleAudioStream);
+        SoundCloud.analyser.getByteFrequencyData(array);
+
+        if (SoundCloud.soundcloudOn === true) {
+          requestAnimationFrame(sampleAudioStream);
+        }
     };
 
     requestAnimationFrame(sampleAudioStream)
@@ -113,18 +120,19 @@ var SoundcloudLoader = function(player) {
 };
 
 window.onload = function init() {
-    var player =  document.getElementById('player');
-    var loader = new SoundcloudLoader(player);
-    var audioSource = new SoundCloudAudioSource(player);
-    var loadAndUpdate = function(trackUrl){
-    loader.loadStream(trackUrl,
-        function(){
-       		audioSource.playStream(loader.streamUrl());
-       	});
-    }
 
     // handle the form submit event to load the new URL
     form.addEventListener('submit', function(e) {
+        var player =  document.getElementById('player');
+        var loader = new SoundcloudLoader(player);
+        var audioSource = new SoundCloudAudioSource(player);
+        var loadAndUpdate = function(trackUrl){
+        loader.loadStream(trackUrl,
+            function(){
+                audioSource.playStream(loader.streamUrl());
+            });
+        }        
+
         e.preventDefault();
         var trackUrl = document.getElementById('input').value;
         loadAndUpdate(trackUrl);
