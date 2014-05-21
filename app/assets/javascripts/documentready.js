@@ -3,6 +3,7 @@ var soundcloundOn;
 $(document).ready(function(){
 	var soundcloundOn;
 	cube();
+	//sphere();
 
 	$('#microphone').click(function(){
 			window.source && source.disconnect(0);
@@ -19,11 +20,11 @@ $(document).ready(function(){
 			SoundCloud.soundcloudOn = false;
 			SoundCloud.analyser.disconnect();
 			SoundCloud.source.disconnect();
-			analyser = null;
-			source = null; 
-			sourceJs = null;
-			analyser = null;
-			buffer = null;			
+			// analyser = null;
+			// source = null; 
+			// sourceJs = null;
+			// analyser = null;
+			// buffer = null;			
 			setTimeout(function(){
 				playSong();
 			}, 500);
@@ -48,6 +49,7 @@ $(document).ready(function(){
 
 	$('#sphere').click(function(){
 		sphere();
+		console.log('it should launch the sphere')
 	});
 
 	$('#leap').click(function(){

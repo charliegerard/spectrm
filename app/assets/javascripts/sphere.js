@@ -5,6 +5,7 @@ var sizeValue = 1;
 var lines = new Array();
 
 var sphere = function(){
+	console.log('hello')
 	var SCREEN_WIDTH = window.innerWidth,
 	SCREEN_HEIGHT = window.innerHeight,
 
@@ -24,7 +25,6 @@ var sphere = function(){
 
 	function init(){
 		var container;
-
 		//Creating the element that is going to contain our Three.js object.
 		container = document.createElement('div');
 		//Append the container to the body of the page.
@@ -88,7 +88,6 @@ var sphere = function(){
 		renderer.setSize( SCREEN_WIDTH, SCREEN_HEIGHT );
 		//Append the renderer to the container.
 		container.appendChild( renderer.domElement );
-
 		//Event listeners to allow controls.
 		//Each of these function is declared below.
 		document.addEventListener( 'mousemove', onDocumentMouseMove, false );

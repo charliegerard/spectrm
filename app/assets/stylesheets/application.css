@@ -83,7 +83,7 @@ h1{
 }
 
 canvas{
-/*	position: absolute;*/
+	position: absolute;
 	top: 0;
 	z-index: -1;
 }
