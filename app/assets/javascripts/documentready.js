@@ -7,18 +7,27 @@ $(document).ready(function(){
 	$('#microphone').click(function(){
 			window.source && source.disconnect(0);
 			window.microphoneOn = true;
-			SoundCloud.soundcloudOn = false;
-			SoundCloud.analyser.disconnect();
-			SoundCloud.source.disconnect();
+
+			if(SoundCloud.analyser){
+				SoundCloud.soundcloudOn = false;
+				SoundCloud.analyser.disconnect();
+				SoundCloud.source.disconnect();
+			}
 			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;	
 		 	navigator.getUserMedia( {audio:true}, gotStream );
 	 });
 
 	$('#song').click(function(){
 			window.microphoneOn = false;
-			SoundCloud.soundcloudOn = false;
-			SoundCloud.analyser.disconnect();
-			SoundCloud.source.disconnect();			
+
+			if(SoundCloud.analyser){
+				SoundCloud.soundcloudOn = false;
+				SoundCloud.analyser.disconnect();
+				SoundCloud.source.disconnect();
+			}
+			// SoundCloud.soundcloudOn = false;
+			// SoundCloud.analyser.disconnect();
+			// SoundCloud.source.disconnect();			
 			setTimeout(function(){
 				playSong();
 			}, 500);
@@ -26,7 +35,8 @@ $(document).ready(function(){
 
 	$('#form').on('submit', function() {
 		analyser = null;
-		soundcloudOn = true;
+		source.disconnect(0)
+		//soundcloudOn = true;
     });
 
 	$('#cube').click(function(){
