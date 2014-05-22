@@ -4,9 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Test2 with microphone</title>
 	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
-
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>
-
 </head>
 <body>
 	<div id="newListSettings" style="display: none">
@@ -18,11 +16,9 @@
 
 	<!-- If there is a current user logged in -->
 	<% if @current_user %>
-
-
 	<% end %>
 
-	<!--Sign up form -->
+	<!--Unless there is a current user, do this -->
 	<% unless @current_user %>
 		<!-- Propose to either sign in or sign up -->
 		<div id="login-choice" style="display: none">
@@ -31,6 +27,7 @@
 			<button id="signin-choice">Sign in</button>
 		</div>
 
+		<!-- Sign up form -->
 		<div class="sign-up" style="display: none">
 			<h1>To save your settings, please sign up first!</h1>
 			<% if flash[:notice].present? %> 
@@ -52,24 +49,19 @@
 			<% if flash[:notice].present? %> 
             	<h2><%= flash[:notice] %></h2> 
           	<% end %>
-			<!--<form action='/login' method="post">-->
-				<%= form_tag login_path, :method => :post do %>
-					<%= label_tag :email %>
-					<%= text_field_tag :email, params[:email], :autofocus => true, :required => true %>
-					<%= label_tag :password %>
-					<%= password_field_tag :password, :required => true %>
-					<%= submit_tag "Sign in", class:'signInButton' %>
-					<button class="cancel_button">Cancel</button>
-				<% end %>
-
-			<!--</form> -->
+			<%= form_tag login_path, :method => :post do %>
+				<%= label_tag :email %>
+				<%= text_field_tag :email, params[:email], :autofocus => true, :required => true %>
+				<%= label_tag :password %>
+				<%= password_field_tag :password, :required => true %>
+				<%= submit_tag "Sign in", class:'signInButton' %>
+				<button class="cancel_button">Cancel</button>
+			<% end %>
 		</div> 
 	<% end %>
 
 	<div id="credits">
 		<p>Music: "Hunrgy Face" by <a href="http://www.rdio.com/artist/Mogwai/">Mogwai</a></p>
 	</div>
-
-	<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r67/three.min.js"></script>-->
 </body>
 </html>
