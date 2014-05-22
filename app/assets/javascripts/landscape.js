@@ -1,3 +1,5 @@
+//This file creates a city with buildings but I am currently not using it in the app.
+
 
 var landscape = function(){
 

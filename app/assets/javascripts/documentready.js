@@ -5,32 +5,29 @@ $(document).ready(function(){
 	cube();
 
 	$('#microphone').click(function(){
-			window.source && source.disconnect(0);
-			window.microphoneOn = true;
+		window.source && source.disconnect(0);
+		window.microphoneOn = true;
 
-			if(SoundCloud.analyser){
-				SoundCloud.soundcloudOn = false;
-				SoundCloud.analyser.disconnect();
-				SoundCloud.source.disconnect();
-			}
-			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;	
-		 	navigator.getUserMedia( {audio:true}, gotStream );
-	 });
+		if(SoundCloud.analyser){
+			SoundCloud.soundcloudOn = false;
+			SoundCloud.analyser.disconnect();
+			SoundCloud.source.disconnect();
+		}
+		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;	
+		navigator.getUserMedia( {audio:true}, gotStream );
+	});
 
 	$('#song').click(function(){
-			window.microphoneOn = false;
+		window.microphoneOn = false;
 
-			if(SoundCloud.analyser){
-				SoundCloud.soundcloudOn = false;
-				SoundCloud.analyser.disconnect();
-				SoundCloud.source.disconnect();
-			}
-			// SoundCloud.soundcloudOn = false;
-			// SoundCloud.analyser.disconnect();
-			// SoundCloud.source.disconnect();			
-			setTimeout(function(){
-				playSong();
-			}, 500);
+		if(SoundCloud.analyser){
+			SoundCloud.soundcloudOn = false;
+			SoundCloud.analyser.disconnect();
+			SoundCloud.source.disconnect();
+		}			
+		setTimeout(function(){
+			playSong();
+		}, 500);
 	});
 
 	$('#form').on('submit', function() {
@@ -53,7 +50,6 @@ $(document).ready(function(){
 
 	$('#sphere').click(function(){
 		sphere();
-		console.log('it should launch the sphere')
 	});
 
 	$('#leap').click(function(){
@@ -118,8 +114,8 @@ $(document).ready(function(){
 		$('#save-settings').fadeOut();
 	});
 
-		        $('#buttonLeap').click(function(e){
-	        		e.preventDefault();
-	        		$('#errorLeap').fadeOut();
-	        	});
+	$('#buttonLeap').click(function(e){
+	    e.preventDefault();
+	    $('#errorLeap').fadeOut();
+	});
 });
