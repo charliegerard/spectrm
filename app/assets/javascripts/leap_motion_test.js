@@ -1,5 +1,11 @@
-
-//https://developer.leapmotion.com/libraries/165
+/*
+This file adds the leap motion functionality. At the moment I just tested it quickly so this is still a bit
+messy...
+Basically, I copied the code to create the cube shape and added at the end the code to apply the Leap Motion
+to it.
+In the next few days, I'll probably go back into all my code and add the Leap Motion part to each of the shapes
+and make it do more interesting stuff.
+ */
 
 var leap = function(){
 	//Creating the scene and objects
@@ -27,9 +33,7 @@ var leap = function(){
 				reflectivity: 1.5
 			});
 
-			//Not sure how this part works, need to figure out.
 			cubes[i][j] = new THREE.Mesh(geometry, material);
-			//Left position on screen??
 			cubes[i][j].position = new THREE.Vector3(x,y,30);
 
 			//Adds the cubes to the scene.
@@ -43,8 +47,7 @@ var leap = function(){
 	var light = new THREE.AmbientLight(0x505050);
 	scene.add(light);
 
-
-	//Need to test all that to see what it does.
+	//Need to test changing the value of all of this to check the impact.
 	var directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
 	directionalLight.position.set(0,1,1);
 	scene.add(directionalLight);
@@ -52,7 +55,6 @@ var leap = function(){
 	directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
 	directionalLight.position.set(1, 1, 0);
 	scene.add(directionalLight);
-
 
 	directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
 	directionalLight.position.set(0, -1, -1);
@@ -62,15 +64,17 @@ var leap = function(){
 	directionalLight.position.set(-1, -1, 0);
 	scene.add(directionalLight);
 
+	//Changes the position of the camera to center the cube on the screen.
 	camera.position.z = 70;
 	camera.position.x = -1
 	camera.position.y = -2
 
-	//Draws the cubes??
 	var render = function(){
-		// console.log(array)
+		/*
+		array is the key variable here as it contains the data we get back from analysing the sound and
+		impact the height of each cube in the shape 
+		*/
 		if(typeof array === 'object' && array.length > 0) {
-			//console.log(array)
 			var k = 0;
 			for(var i = 0; i <cubes.length; i++){
 				for(var j = 0; j < cubes[i].length; j++){
@@ -85,20 +89,20 @@ var leap = function(){
 
 		requestAnimationFrame(render);
 
+		//Leap Motion starting here.
 		Leap.loop(function(frame) {
 	        if (frame.valid) {
 	          if (state == null) {
-	            if (frame.hands.length > 0 && frame.pointables.length <= 2) {
+	          	//Checks if there is a hand over the leap motion and how many fingers.
+	            if (frame.hands.length > 0 && frame.pointables.length <= 5) {
 	              startFrame = frame;
 	              startX = camera.position.x;
-	              //startY = camera.position.y;
 	              startZ = camera.position.z;
 	              state = 'moving';
 	            }
 	          } else if (state == 'moving') {
 	            var t = startFrame.translation(frame);
 	            camera.position.x = t[0] + startX;
-	            //camera.position.y = t[1] + startY;
 	            camera.position.z = t[2] + startZ;
 
 	            if (frame.hands.length == 1 || frame.pointables.legnth > 1) {
@@ -106,7 +110,7 @@ var leap = function(){
 	            }
 	          }
 	        } else {
-	        	$('#errorLeap').fadeIn();
+	        	$('#errorLeap').fadeIn(); // Display the error message
 	        }
       	});
 
