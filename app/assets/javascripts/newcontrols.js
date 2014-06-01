@@ -96,7 +96,6 @@ $(document).ready(function(){
   });
 
   $('.lists').bind('change',function(){
-    console.log('hello')
     var size = $(this).find(':selected').data('size')
     $('#sizeInput').val(size);
   });
@@ -114,6 +113,5 @@ $(document).ready(function(){
     $('#inner_panel').slideToggle('slow', function(){
     });
   });
-
 });
 

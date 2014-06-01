@@ -69,51 +69,55 @@ $(document).ready(function(){
 
 		};
 
-		this.onMouseDown = function ( event ) {
+		/*Deactivate mouseUp and mouseDown so the input in the control panel can still be used.
+		If these ones are reactivated, you can circulate through the 'buildings' by pressing the mouse
+		But the 'size' input can no longer be changed. */
 
-			if ( this.domElement !== document ) {
+		// this.onMouseDown = function ( event ) {
 
-				this.domElement.focus();
+		// 	if ( this.domElement !== document ) {
 
-			}
+		// 		this.domElement.focus();
 
-			event.preventDefault();
-			event.stopPropagation();
+		// 	}
 
-			if ( this.activeLook ) {
+		// 	event.preventDefault();
+		// 	event.stopPropagation();
 
-				switch ( event.button ) {
+		// 	if ( this.activeLook ) {
 
-					case 0: this.moveForward = true; break;
-					case 2: this.moveBackward = true; break;
+		// 		switch ( event.button ) {
 
-				}
+		// 			case 0: this.moveForward = true; break;
+		// 			case 2: this.moveBackward = true; break;
 
-			}
+		// 		}
 
-			this.mouseDragOn = true;
+		// 	}
 
-		};
+		// 	this.mouseDragOn = true;
 
-		this.onMouseUp = function ( event ) {
+		// };
 
-			event.preventDefault();
-			event.stopPropagation();
+		// this.onMouseUp = function ( event ) {
 
-			if ( this.activeLook ) {
+		// 	event.preventDefault();
+		// 	event.stopPropagation();
 
-				switch ( event.button ) {
+		// 	if ( this.activeLook ) {
 
-					case 0: this.moveForward = false; break;
-					case 2: this.moveBackward = false; break;
+		// 		switch ( event.button ) {
 
-				}
+		// 			case 0: this.moveForward = false; break;
+		// 			case 2: this.moveBackward = false; break;
 
-			}
+		// 		}
 
-			this.mouseDragOn = false;
+		// 	}
 
-		};
+		// 	this.mouseDragOn = false;
+
+		// };
 
 		this.onMouseMove = function ( event ) {
 

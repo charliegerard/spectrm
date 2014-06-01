@@ -106,7 +106,7 @@ var city = function(){
 		controls.lookVertical	= true;
 		updateFcts.push(function(delta, now){
 			controls.update( delta );		
-	})
+		})
 
 	updateFcts.push(function(){
 		renderer.setSize($(window).width(), $(window).height());
