@@ -74,6 +74,10 @@ window.requestAnimFrame = (function(){
   	}
   		requestAnimFrame(process);
   };  //End of gotStream function
+
+  function noStream(){
+    alert("The microphone is not activated")
+  }
  
 //Massive thanks to Sann-Remy for putting his code on github. Huge help!
 //http://srchea.com/experimenting-with-web-audio-api-three-js-webgl

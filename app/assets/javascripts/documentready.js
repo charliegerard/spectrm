@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 		//Asks to activate the microphone and calls the function gotStream();
 		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;	
-		navigator.getUserMedia( {audio:true}, gotStream );
+		navigator.getUserMedia( {audio:true}, gotStream, noStream );
 	});
 
 	$('#song').click(function(){
