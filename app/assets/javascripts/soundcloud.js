@@ -21,15 +21,15 @@ var SoundCloudAudioSource = function(player) {
     	sizeValue = parseInt($('#sizeInput').val());
     	array = new Uint8Array(SoundCloud.analyser.frequencyBinCount)
 
+        SoundCloud.analyser.getByteFrequencyData(array);
+
         //Using this to influence the size of the shape when the slider is changed in the control panel.
         boost = 0;
-      	//Not sure about that. 
-      	for(var i = 0; i < array.length; i++){
-      		boost += array[i];
-      	}
-      	boost = (boost / array.length) * (sizeValue * 2);
-
-        SoundCloud.analyser.getByteFrequencyData(array);
+        //Not sure about that. 
+        for(var i = 0; i < array.length; i++){
+            boost += array[i];
+        }
+        boost = (boost / array.length) * (sizeValue * 2);
 
         if (SoundCloud.soundcloudOn === true) {
           requestAnimationFrame(sampleAudioStream);

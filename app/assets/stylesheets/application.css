@@ -200,6 +200,7 @@ canvas{
 	padding: 0.5%;
 	width: 18%;
 	text-align: center;
+	z-index: 10;
 }
 .control_panel p{
 	color: #bbb;
