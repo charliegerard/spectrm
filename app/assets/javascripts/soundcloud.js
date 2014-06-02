@@ -53,7 +53,7 @@ var SoundCloudAudioSource = function(player) {
  */
 var SoundcloudLoader = function(player) {
     var self = this;
-    var client_id = "0f51b1e1e15add18752bc0cb4522134a"; // I should hide this I know.
+    var client_id = "0f51b1e1e15add18752bc0cb4522134a"
     this.sound = {};
     this.streamUrl = "";
     this.errorMessage = "";
@@ -123,6 +123,7 @@ window.onload = function init() {
 
     // handle the form submit event to load the new URL
     form.addEventListener('submit', function(e) {
+        console.log('submit')
         var player =  document.getElementById('player');
         var loader = new SoundcloudLoader(player);
         var audioSource = new SoundCloudAudioSource(player);
