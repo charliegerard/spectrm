@@ -7,7 +7,7 @@ $(document).ready(function(){
 	}
 
 	//This is not the best solution but until the app works on Safari, just detect if this is the browser used.
-	if (navigator.userAgent.indexOf('Safari') != -1 && navigator.userAgent.indexOf('Chrome') == -1) {
+	if (navigator.userAgent.indexOf('Safari') != -1) {
 		alert("It looks like you're using Safari! This app might not work properly because the features it uses are not supported at the moment. Please try with Google Chrome or Firefox.");
 	}
 
