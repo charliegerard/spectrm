@@ -24,4 +24,8 @@
 	#instructions{
 		display: none;
 	}
+
+	.menu{
+		width: 40%;
+	}
 }
