@@ -399,17 +399,17 @@ input#sizeInput{
 
 /* -------- LOADING ANIMATION WHEN LAUNCHING THE SONG --------*/
 .spinner {
-  margin: 20% 47%;
-  width: 50px;
-  height: 50px;
+  margin: 15% 47%;
+  width: 100px;
+  height: 100px;
   position: absolute;
   z-index: 50;
   display: none;
 }
 
 .container1 > div, .container2 > div, .container3 > div {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   background-color: lawngreen;
 
   border-radius: 100%;
