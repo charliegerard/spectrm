@@ -109,7 +109,7 @@ var leap = function(){
 	              state = null;
 	            }
 	          }
-	        } else {
+	        } else if(! frame.valid){
 	        	$('#errorLeap').fadeIn(); // Display the error message
 	        }
       	});
