@@ -88,6 +88,22 @@ canvas{
 	z-index: -1;
 }
 
+#instructions{
+	position: absolute;
+	z-index: 10;
+	display: block;
+	background-color: rgb(39,39,39);
+	margin: 15% 30%;
+	color: white;
+	padding: 1%;
+	text-align: center;
+	width: auto;
+}
+
+#instructions p{
+	font-weight: 300;
+}
+
 /*--------------- LOGIN-CHOICE SECTION ------------------*/
 
 #login-choice{

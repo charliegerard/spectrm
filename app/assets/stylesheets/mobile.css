@@ -21,4 +21,9 @@
 		font-family: Helvetica;
 		line-height: 17px;
 	}
+
+	#instructions{
+		width: 100%;
+		margin: 0%;
+	}
 }

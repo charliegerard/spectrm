@@ -156,4 +156,9 @@ $(document).ready(function(){
 		e.preventDefault();
 		$('#mobile').fadeOut();
 	});
+
+	$('#instructions-button').click(function(e){
+		e.preventDefault();
+		$('#instructions').fadeOut();
+	});
 });
