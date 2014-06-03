@@ -376,3 +376,7 @@ input#sizeInput{
 	color: white;
 	font-weight: 300;
 }
+
+#mobile{
+	display: none;
+}
