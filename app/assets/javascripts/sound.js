@@ -34,6 +34,9 @@ var playSong = function(){
 		request.responseType = 'arraybuffer';
 
 	    request.onload = function(){
+	    	$('.spinner').css({
+	    		'display': 'none'
+	    	})
 	    	context.decodeAudioData(
 	    		request.response,
 	    		function(buffer){

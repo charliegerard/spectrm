@@ -41,6 +41,9 @@ $(document).ready(function(){
 
 	$('#song').click(function(){
 		window.microphoneOn = false;
+		$('.spinner').css({
+			'display': 'block'
+		})
 
 		if(SoundCloud.analyser){
 			SoundCloud.soundcloudOn = false;
