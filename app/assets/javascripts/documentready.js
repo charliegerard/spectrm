@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 	//This is not the best solution but until the app works on Safari, just detect if this is the browser used.
 	if (navigator.userAgent.indexOf('Safari') != -1) {
-		alert("It looks like you're using Safari! This app might not work properly because the features it uses are not supported at the moment. Please try with Google Chrome or Firefox.");
+		alert("It looks like your browser or device does not support the features used in this app! Please try with Google Chrome or Firefox on your desktop :)");
 	}
 
 	//Calls the cube as first shape to be displayed.
