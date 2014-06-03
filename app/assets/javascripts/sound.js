@@ -19,7 +19,7 @@ if (typeof AudioContext !== "undefined") {
 } else if (typeof webkitAudioContext !== "undefined") {
     context = new webkitAudioContext();
 } else {
-    console.log('omg');
+    alert('It seems like your browser or device does not support the Web Audio API, please check this website using Chrome on your desktop.');
 }
 
 //----------------------- Request URL with sound -------------------------
@@ -42,7 +42,9 @@ var playSong = function(){
 						return;
 	    			}
 
-	    			sourceJs = context.createJavaScriptNode(2048);
+	    			//sourceJs = context.createJavaScriptNode(2048);
+	    			//createJavaScriptNode has been renamed to createScriptProcessor.
+	    			sourceJs = context.createScriptProcessor(2048)
 	    			sourceJs.buffer = buffer;
 	    			sourceJs.connect(context.destination);
 
@@ -90,7 +92,9 @@ var playSong = function(){
 
 	//Plays the sound when you press on the 'SONG' button
 	 function play() {
-	 	source.noteOn(0);
+	 	//source.noteOn(0);
+	 	//noteOn has been changed to start.
+	 	source.start(0)
 	}
 };
 

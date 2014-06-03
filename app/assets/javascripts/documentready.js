@@ -1,5 +1,10 @@
 
 $(document).ready(function(){
+
+	if(! Modernizr.webgl){
+		alert("It seems like your browser or device does not support Webgl :/ Try again with Chrome on desktop")
+	}
+
 	//Calls the cube as first shape to be displayed.
 	cube();
 
@@ -20,7 +25,11 @@ $(document).ready(function(){
 		}
 
 		//Asks to activate the microphone and calls the function gotStream();
-		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;	
+		//Cross-browser
+		navigator.getUserMedia = ( navigator.getUserMedia ||
+                       			   navigator.webkitGetUserMedia ||
+                       			   navigator.mozGetUserMedia ||
+                       			   navigator.msGetUserMedia);	
 		navigator.getUserMedia( {audio:true}, gotStream, noStream );
 	});
 
@@ -40,6 +49,7 @@ $(document).ready(function(){
 	$('#form').on('submit', function() {
 		analyser = null;
 		source.disconnect(0)
+		//source.stop(0)
     });
 
   //   $('#player').click(function(){

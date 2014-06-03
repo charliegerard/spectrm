@@ -123,7 +123,6 @@ window.onload = function init() {
 
     // handle the form submit event to load the new URL
     form.addEventListener('submit', function(e) {
-        console.log('submit')
         var player =  document.getElementById('player');
         var loader = new SoundcloudLoader(player);
         var audioSource = new SoundCloudAudioSource(player);
