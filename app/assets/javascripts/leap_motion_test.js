@@ -109,8 +109,6 @@ var leap = function(){
 	              state = null;
 	            }
 	          }
-	        } else if(! frame.valid){
-	        	$('#errorLeap').fadeIn(); // Display the error message
 	        }
       	});
 
