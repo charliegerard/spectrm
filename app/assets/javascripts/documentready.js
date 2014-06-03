@@ -151,4 +151,9 @@ $(document).ready(function(){
 	    e.preventDefault();
 	    $('#errorLeap').fadeOut();
 	});
+
+	$('#mobile_button').click(function(e){
+		e.preventDefault();
+		$('#mobile').fadeOut();
+	});
 });
