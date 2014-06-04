@@ -1,11 +1,11 @@
 
-##SPECTRM
+#SPECTRM
 
 Spectrm is an interactive music visualizer combining the Web Audio API and the THREE.js library to create shapes in your browser and make them respond to a song, the input from the microphone or any song from Soundcloud.
 
 You can have a look at it here: http://spectrm.herokuapp.com
 
-####HOW TO USE IT: 
+##HOW TO USE IT: 
 
 * When you visit the page you can choose whichever 3D shape you like from the left menu.
 * If you want to see them in action, either click on the 'use the song', 'use the microphone', or copy and paste any link from Soundcloud in the player at the bottom of the page.
@@ -14,12 +14,12 @@ You can have a look at it here: http://spectrm.herokuapp.com
 * If you want to save this setting, you can sign up or sign in to load them later.
 * If you have a Leap Motion device, you can plug it and click on the Leap Motion button to start manipulating the shapes. At the moment, only the cube shape can be used with the Leap Motion.
 
-####TOOLKIT:
+##TOOLKIT:
 
 This website uses Javascript, jQuery, the Web Audio API, THREE.js, the Soundcloud API and the Leap Motion API.
 The back-end is managed by Rails.
 
-####TODO:
+##TODO:
 
 * Play around more with Three.js and add new shapes.
 * Add more testing.
