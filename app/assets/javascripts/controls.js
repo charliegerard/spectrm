@@ -46,9 +46,7 @@ $(document).ready(function(){
 		this.viewHalfY = 0;
 
 		if ( this.domElement !== document ) {
-
 			this.domElement.setAttribute( 'tabindex', -1 );
-
 		}
 
 		//

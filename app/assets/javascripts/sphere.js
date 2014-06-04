@@ -148,8 +148,6 @@ var sphere = function(){
 		//Updates the position of the camera depending on the movement of the mouse?
 		camera.position.y -= (  mouseY + 1000 + camera.position.y ) * .05;
 		camera.position.x -= (  mouseX + 1000 + camera.position.x ) * .05;
-		//camera.position.y += (  mouseY + 200 ) * 1;
-		//camera.position.y = 100;
 		camera.position.z = -3000;
 		camera.lookAt( scene.position );
 
@@ -158,32 +156,24 @@ var sphere = function(){
 
 		//Not sure about that... Speed?
 		var time = Date.now() * 0.0001;
-		// var time = Date.now() * 0.0001 * (boost / 10);
 
 		if(typeof array === 'object' && array.length > 0) {
-			//console.log(array.length)
 			var k = 0;
 			for ( var i = 0; i < scene.children.length; i ++ ) {
-				//for(var j = 0; j < scene.children[i].length; j++){
 					var scale = (array[k]  + boost)/2; // THE LAST VALUE IMPACTS ON THE HEIGHT OF THE CUBES
 		 			//scene.children[i].scale.y = (scale < 1 ? 1 : scale);
 		 			scene.children[i].scale.x = (scale < 1 ? 1 : scale);
 		 			//scene.children[i].scale.y = (scale < 1 ? 1 : scale);
 		 			k += (k < array.length ? 1 : 0);
-		 			//console.log(boost)
 
 					var object = scene.children[ i ];
-					// object.scale.y = (scale < 1 ? 1 : scale/100);
 					object.scale.y = (scale < 1 ? 1 : scale/5);
 					object.scale.x = (scale < 1 ? 1 : scale/5)
 
 					// //Rotates the shape and and gives the effect of back and forth.
 					 if ( object instanceof THREE.Line ) {
 					  	object.rotation.y = time * ( i < 4 ? ( i + 1 ) : - ( i + 1 ) );
-					 //if ( i < 5 ) object.scale.x = object.scale.y = object.scale.z = object.originalScale * (i/5+1) * (1 + 0.5 * Math.sin( 7 * (scale < 1 ? 1 : scale) ) );
-					//  	if ( i < 1 ) object.scale.x = object.scale.y = object.scale.z = object.originalScale * (i/5+1) * (1 + 5 * Math.sin( 5* (scale < 1 ? 1 : scale) ) );
 					 }
-				//}
 			}
 		}
 	} //End of render

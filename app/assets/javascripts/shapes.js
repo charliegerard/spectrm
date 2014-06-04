@@ -29,16 +29,6 @@ var cube = function(){
 			cubes[i][j] = new THREE.Mesh(geometry, material);
 			//Left position on screen??
 			cubes[i][j].position = new THREE.Vector3(x,y,30);
-			// camera.rotation.x = 100
-
-			//cubes[i][j].rotateOnAxis(y, 90)
-
-			// ----- ROTATES THE CUBES LIKE CRAZY ---------
-			// cubes[i][j].rotation.x += x
-			// cubes[i][j].rotation.y += y
-
-			// ----- OTHER TEST -------
-			// cubes[i][j].rotation.x += x
 
 			//Adds the cubes to the scene.
 			scene.add(cubes[i][j])
@@ -50,7 +40,6 @@ var cube = function(){
 	//Creates light for the scene. Nothing is visible otherwise;
 	var light = new THREE.AmbientLight(0x505050);
 	scene.add(light);
-
 
 	//Need to test all that to see what it does.
 	var directionalLight = new THREE.DirectionalLight(0xffffff, 0.7);
@@ -74,43 +63,21 @@ var cube = function(){
 	camera.position.x = -1
 	camera.position.y = -2
 
-	//Allows to move the camera??
-	// controls = new THREE.OrbitControls(camera);
-	// controls.addEventListener('change', render);
-
-	// for(var i = 0; i < 7; i++){
-	 //	controls.pan(new THREE.Vector3(1,0,0));
-	 	//controls.pan(new THREE.Vector3(0,1,0));
-	 //}
-
-	//Draws the cubes??
+	//Draws the cubes and makes them respond to the sound.
 	var render = function(){
-		// console.log(array)
 		if(typeof array === 'object' && array.length > 0) {
-			//console.log(array)
 			var k = 0;
 			for(var i = 0; i <cubes.length; i++){
 				for(var j = 0; j < cubes[i].length; j++){
 					var scale = (array[k]  + boost) / 20; // THE LAST VALUE IMPACTS ON THE HEIGHT OF THE CUBES
 					//Here you can play around with the different settings as long as you use the 'scale' variable.
 					cubes[i][j].scale.z = (scale < 1 ? 1 : scale);
-					//cubes[i][j].scale.x = (scale < 1 ? 1 : scale);
-					//cubes[i][j].position = new THREE.Vector3(scale,scale,scale);
-					//cubes[i][j].position = new THREE.Vector3(scale,y,30);
-					//cubes[i][j].rotation.x += scale
-					//cubes[i][j].rotation.y += scale
-					//This one is interesting:
-					//cubes[i][j].rotation.z += scale/30
 					k += (k < array.length ? 1 : 0);
-						//console.log(array)
 				}
 			}
 		}
 
 		requestAnimationFrame(render);
-		//Supposed to update OrbitControls to move the shapes
-		//controls.update();
-
 		renderer.render(scene, camera);
 	};
 
@@ -132,12 +99,5 @@ var cube = function(){
 		audioSource = options.audioSource;
 	}
 }//End of cube function
-
-
-
-
-
-
-
 
 

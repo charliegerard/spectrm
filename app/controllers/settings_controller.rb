@@ -8,7 +8,6 @@ class SettingsController < ApplicationController
 	end
 
 	def create
-
 		settingName = Setting.where(:name => params[:setting][:name], :user_id => @current_user.id)[0]
 		if settingName.present?
 			settingName.update_attributes(params[:setting])
@@ -25,7 +24,6 @@ class SettingsController < ApplicationController
 	end
 
 	def load
-		#binding.pry
 		settings = Setting.where(:user_id => @current_user.id)
 
 		if settings.present?
@@ -43,10 +41,8 @@ class SettingsController < ApplicationController
 	end
 
 	def destroy
-		#binding.pry
 	    settingName = Setting.where(:name => params[:setting][:name], :user_id => @current_user.id)
 	    if settingName.present?
-	    	# setting = settingName[0].update_attributes(params[:setting])
 	    	setting = settingName[0]
 	    end
 

@@ -61,11 +61,6 @@ $(document).ready(function(){
 		//source.stop(0)
     });
 
-  //   $('#player').click(function(){
-  //   	analyser = null;
-		// source.disconnect(0)
-  //   });
-
 	//Calls the cube function when clicking on the cube in the menu.
 	$('#cube').click(function(){
 		cube();

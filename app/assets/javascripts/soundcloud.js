@@ -13,7 +13,6 @@ var SoundCloudAudioSource = function(player) {
     SoundCloud.audioCtx = new (window.AudioContext || window.webkitAudioContext);
     SoundCloud.source = SoundCloud.audioCtx.createMediaElementSource(player);
   	SoundCloud.analyser = SoundCloud.audioCtx.createAnalyser();
-    //analyser.fftSize = 256;
     SoundCloud.source.connect(SoundCloud.analyser);
     SoundCloud.analyser.connect(SoundCloud.audioCtx.destination);
 
